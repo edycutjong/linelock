@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/edycutjong/linelock/compare/v1.0.0...v1.1.0) (2026-07-17)
+
+
+### Features
+
+* **docs:** wow-factor landing redesign — ledger-noir aesthetic, micro-animations, embedded demo ([c6f7623](https://github.com/edycutjong/linelock/commit/c6f762395dadec009d0cc01581536fe983b2f2ea))
+
 # 1.0.0 (2026-07-17)
 
 

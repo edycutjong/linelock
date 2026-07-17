@@ -1,6 +1,6 @@
 {
   "name": "linelock",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "LineLock — lock the line, prove the pick. Pay-per-pick World Cup edge API on Injective EVM x402 + a free CLV-scored public ledger.",
