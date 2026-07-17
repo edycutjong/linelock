@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/edycutjong/linelock/compare/v1.2.0...v1.2.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* **api:** atomic ledger seeding — parallel test workers could observe a half-seeded DB ([51bf257](https://github.com/edycutjong/linelock/commit/51bf257d6c72056d2f53573e0398f8d57c4b13cb))
+
 # [1.2.0](https://github.com/edycutjong/linelock/compare/v1.1.0...v1.2.0) (2026-07-17)
 
 
