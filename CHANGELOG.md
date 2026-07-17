@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/edycutjong/linelock/compare/v1.2.1...v1.2.2) (2026-07-17)
+
+
+### Bug Fixes
+
+* **api:** restore upsertRow import (still used by the paid-edge handler) ([2678aba](https://github.com/edycutjong/linelock/commit/2678abade9bd5271ee671830e138285c15e30fab))
+
 ## [1.2.1](https://github.com/edycutjong/linelock/compare/v1.2.0...v1.2.1) (2026-07-17)
 
 
