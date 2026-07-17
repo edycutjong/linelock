@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/edycutjong/linelock/compare/v1.1.0...v1.2.0) (2026-07-17)
+
+
+### Features
+
+* **docs:** restyle pitch deck to ledger-noir landing design system (reveals, count-ups, print-safe) ([dd945e4](https://github.com/edycutjong/linelock/commit/dd945e45fbb29c4f8e2e4d7378aa5dc2bc9202d8))
+
 # [1.1.0](https://github.com/edycutjong/linelock/compare/v1.0.0...v1.1.0) (2026-07-17)
 
 
