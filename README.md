@@ -8,7 +8,7 @@
 
   [![Live Site](https://img.shields.io/badge/Live_Site-linelock-FFB300?style=for-the-badge&labelColor=0B0A07)](https://linelock.edycu.dev/)
   [![Pitch Deck](https://img.shields.io/badge/Pitch-Deck-FF007A?style=for-the-badge&labelColor=0B0A07)](https://linelock.edycu.dev/pitch/)
-  [![Live API](https://img.shields.io/badge/Live_API-Railway-7B4DFF?style=for-the-badge&labelColor=0B0A07)](https://linelock-production.up.railway.app/api/ledger)
+  [![Live API](https://img.shields.io/badge/Live_API-Railway-7B4DFF?style=for-the-badge&labelColor=0B0A07)](https://api.linelock.edycu.dev/api/ledger)
   [![Demo Video](https://img.shields.io/badge/%E2%96%B6_Demo_Video-YouTube-FF0000?style=for-the-badge&labelColor=0B0A07)](https://youtu.be/MHHYIJkLRbo)
   ![HackQuest · Injective Global Cup 2026](https://img.shields.io/badge/HackQuest-Injective_Global_Cup_2026-0082FA?style=for-the-badge&labelColor=0B0A07)
 
