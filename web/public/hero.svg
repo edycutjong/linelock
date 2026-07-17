@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-label="LineLock — lock the line, prove the pick. An x402 payment unseals the pick; the receipt timestamps it before kickoff; the ledger scores it against the closing line.">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A0A12"/><stop offset="0.5" stop-color="#120714"/><stop offset="1" stop-color="#160607"/>
+    </linearGradient>
+    <linearGradient id="ledgerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF4DA6"/><stop offset="0.45" stop-color="#E91E8C"/><stop offset="1" stop-color="#FFD166"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF007A"/><stop offset="1" stop-color="#FFB300"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF4DA6" stop-opacity="0"/><stop offset="0.5" stop-color="#FF4DA6" stop-opacity="0.5"/><stop offset="1" stop-color="#FF4DA6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="packet" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="0.5" stop-color="#FF4DA6"/><stop offset="1" stop-color="#FF007A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraP" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF007A" stop-opacity="0.55"/><stop offset="1" stop-color="#FF007A" stop-opacity="0"/></radialGradient>
+    <radialGradient id="auroraG" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFB300" stop-opacity="0.5"/><stop offset="1" stop-color="#FFB300" stop-opacity="0"/></radialGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" y="0" fill="#160a14" opacity="0.55"/></pattern>
+    <!-- outlined wordmark glyph paths (Space Grotesk 700, size 72, baseline-anchored) -->
+    <path id="wm-edge" d="M37.6 0L4.8 0L4.8-50.4L37.2-50.4L37.2-41.8L14.3-41.8L14.3-29.7L35.1-29.7L35.1-21.1L14.3-21.1L14.3-8.6L37.6-8.6L37.6 0ZM59.3 1.0L59.3 1.0Q55.1 1.0 51.4-1.1Q47.7-3.2 45.4-7.3Q43.2-11.4 43.2-17.3L43.2-17.3L43.2-18.4Q43.2-24.3 45.4-28.4Q47.7-32.5 51.3-34.6Q55.0-36.7 59.3-36.7L59.3-36.7Q62.6-36.7 64.8-36.0Q67.0-35.2 68.3-34.1Q69.7-32.9 70.4-31.6L70.4-31.6L71.7-31.6L71.7-50.4L80.8-50.4L80.8 0L71.9 0L71.9-4.3L70.6-4.3Q69.3-2.3 66.8-0.6Q64.2 1.0 59.3 1.0ZM62.1-6.9L62.1-6.9Q66.2-6.9 69.0-9.6Q71.9-12.3 71.9-17.5L71.9-17.5L71.9-18.2Q71.9-23.4 69.1-26.1Q66.3-28.8 62.1-28.8L62.1-28.8Q57.9-28.8 55.1-26.1Q52.3-23.4 52.3-18.2L52.3-18.2L52.3-17.5Q52.3-12.3 55.1-9.6Q57.9-6.9 62.1-6.9ZM89.1-17.7L89.1-17.7L89.1-18.9Q89.1-24.5 91.4-28.5Q93.6-32.5 97.3-34.6Q101.0-36.7 105.4-36.7L105.4-36.7Q110.3-36.7 112.8-35.0Q115.3-33.3 116.5-31.4L116.5-31.4L117.8-31.4L117.8-35.7L126.7-35.7L126.7 6.3Q126.7 10.0 124.6 12.2Q122.4 14.4 118.8 14.4L118.8 14.4L94.9 14.4L94.9 6.5L115.6 6.5Q117.6 6.5 117.6 4.3L117.6 4.3L117.6-5.0L116.4-5.0Q115.6-3.8 114.3-2.6Q113.0-1.4 110.9-0.6Q108.7 0.1 105.4 0.1L105.4 0.1Q101.0 0.1 97.3-2.0Q93.6-4.1 91.4-8.1Q89.1-12.1 89.1-17.7ZM108.0-7.8L108.0-7.8Q112.2-7.8 115.0-10.4Q117.8-13.1 117.8-17.9L117.8-17.9L117.8-18.6Q117.8-23.5 115.0-26.2Q112.2-28.8 108.0-28.8L108.0-28.8Q103.8-28.8 101.0-26.2Q98.2-23.5 98.2-18.6L98.2-18.6L98.2-17.9Q98.2-13.1 101.0-10.4Q103.8-7.8 108.0-7.8ZM153.1 1.0L153.1 1.0Q147.7 1.0 143.7-1.3Q139.6-3.5 137.3-7.7Q135.1-11.8 135.1-17.4L135.1-17.4L135.1-18.3Q135.1-23.9 137.3-28.0Q139.5-32.2 143.6-34.5Q147.6-36.7 152.9-36.7L152.9-36.7Q158.2-36.7 162.1-34.4Q166.0-32.0 168.1-27.9Q170.3-23.8 170.3-18.3L170.3-18.3L170.3-15.2L144.3-15.2Q144.4-11.5 147.0-9.2Q149.6-6.9 153.4-6.9L153.4-6.9Q157.2-6.9 159.0-8.6Q160.8-10.2 161.7-12.2L161.7-12.2L169.1-8.4Q168.1-6.5 166.2-4.3Q164.3-2.1 161.1-0.5Q158.0 1.0 153.1 1.0ZM144.4-22.0L144.4-22.0L161.1-22.0Q160.8-25.1 158.6-26.9Q156.4-28.8 152.9-28.8L152.9-28.8Q149.2-28.8 147.0-26.9Q144.9-25.1 144.4-22.0Z"/>
+    <path id="wm-ledger" d="M37.3 0L4.8 0L4.8-50.4L14.3-50.4L14.3-8.6L37.3-8.6L37.3 0ZM60.3 1.0L60.3 1.0Q55.0 1.0 50.9-1.3Q46.9-3.5 44.6-7.7Q42.3-11.8 42.3-17.4L42.3-17.4L42.3-18.3Q42.3-23.9 44.6-28.0Q46.8-32.2 50.8-34.5Q54.9-36.7 60.2-36.7L60.2-36.7Q65.4-36.7 69.3-34.4Q73.2-32.0 75.4-27.9Q77.5-23.8 77.5-18.3L77.5-18.3L77.5-15.2L51.6-15.2Q51.7-11.5 54.3-9.2Q56.9-6.9 60.6-6.9L60.6-6.9Q64.4-6.9 66.2-8.6Q68.0-10.2 69.0-12.2L69.0-12.2L76.4-8.4Q75.4-6.5 73.5-4.3Q71.6-2.1 68.4-0.5Q65.2 1.0 60.3 1.0ZM51.6-22.0L51.6-22.0L68.3-22.0Q68.0-25.1 65.8-26.9Q63.6-28.8 60.1-28.8L60.1-28.8Q56.4-28.8 54.3-26.9Q52.1-25.1 51.6-22.0ZM100.0 1.0L100.0 1.0Q95.8 1.0 92.1-1.1Q88.3-3.2 86.1-7.3Q83.9-11.4 83.9-17.3L83.9-17.3L83.9-18.4Q83.9-24.3 86.1-28.4Q88.3-32.5 92.0-34.6Q95.7-36.7 100.0-36.7L100.0-36.7Q103.2-36.7 105.4-36.0Q107.6-35.2 109.0-34.1Q110.4-32.9 111.1-31.6L111.1-31.6L112.4-31.6L112.4-50.4L121.5-50.4L121.5 0L112.5 0L112.5-4.3L111.2-4.3Q110.0-2.3 107.5-0.6Q104.9 1.0 100.0 1.0ZM102.7-6.9L102.7-6.9Q106.9-6.9 109.7-9.6Q112.5-12.3 112.5-17.5L112.5-17.5L112.5-18.2Q112.5-23.4 109.8-26.1Q107.0-28.8 102.7-28.8L102.7-28.8Q98.6-28.8 95.8-26.1Q93.0-23.4 93.0-18.2L93.0-18.2L93.0-17.5Q93.0-12.3 95.8-9.6Q98.6-6.9 102.7-6.9ZM129.8-17.7L129.8-17.7L129.8-18.9Q129.8-24.5 132.0-28.5Q134.3-32.5 138.0-34.6Q141.7-36.7 146.1-36.7L146.1-36.7Q151.0-36.7 153.5-35.0Q156.0-33.3 157.2-31.4L157.2-31.4L158.5-31.4L158.5-35.7L167.4-35.7L167.4 6.3Q167.4 10.0 165.2 12.2Q163.1 14.4 159.5 14.4L159.5 14.4L135.6 14.4L135.6 6.5L156.3 6.5Q158.3 6.5 158.3 4.3L158.3 4.3L158.3-5.0L157.0-5.0Q156.3-3.8 155.0-2.6Q153.7-1.4 151.6-0.6Q149.4 0.1 146.1 0.1L146.1 0.1Q141.7 0.1 138.0-2.0Q134.3-4.1 132.0-8.1Q129.8-12.1 129.8-17.7ZM148.7-7.8L148.7-7.8Q152.9-7.8 155.7-10.4Q158.5-13.1 158.5-17.9L158.5-17.9L158.5-18.6Q158.5-23.5 155.7-26.2Q152.9-28.8 148.7-28.8L148.7-28.8Q144.5-28.8 141.7-26.2Q138.9-23.5 138.9-18.6L138.9-18.6L138.9-17.9Q138.9-13.1 141.7-10.4Q144.5-7.8 148.7-7.8ZM193.8 1.0L193.8 1.0Q188.4 1.0 184.4-1.3Q180.3-3.5 178.0-7.7Q175.8-11.8 175.8-17.4L175.8-17.4L175.8-18.3Q175.8-23.9 178.0-28.0Q180.2-32.2 184.2-34.5Q188.3-36.7 193.6-36.7L193.6-36.7Q198.9-36.7 202.8-34.4Q206.6-32.0 208.8-27.9Q211.0-23.8 211.0-18.3L211.0-18.3L211.0-15.2L185.0-15.2Q185.1-11.5 187.7-9.2Q190.3-6.9 194.0-6.9L194.0-6.9Q197.9-6.9 199.7-8.6Q201.5-10.2 202.4-12.2L202.4-12.2L209.8-8.4Q208.8-6.5 206.9-4.3Q205.0-2.1 201.8-0.5Q198.6 1.0 193.8 1.0ZM185.0-22.0L185.0-22.0L201.7-22.0Q201.5-25.1 199.3-26.9Q197.1-28.8 193.5-28.8L193.5-28.8Q189.9-28.8 187.7-26.9Q185.5-25.1 185.0-22.0ZM228.1 0L219.0 0L219.0-35.7L228.0-35.7L228.0-31.7L229.2-31.7Q230.0-33.8 231.9-34.8Q233.7-35.9 236.2-35.9L236.2-35.9L240.5-35.9L240.5-27.8L236.0-27.8Q232.6-27.8 230.3-26.0Q228.1-24.1 228.1-20.3L228.1-20.3L228.1 0Z"/>
+    <clipPath id="ledgerClip"><use href="#wm-ledger" x="178.3"/></clipPath>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="34"/></filter>
+    <filter id="trail" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <clipPath id="plateClip"><rect x="0" y="0" width="1280" height="320" rx="26"/></clipPath>
+    <g id="lk"><rect x="0" y="5.4" width="11" height="7.8" rx="1.6" fill="currentColor"/><path d="M2.2 5.4 V3.6 A3.3 3.3 0 0 1 8.8 3.6 V5.4" fill="none" stroke="currentColor" stroke-width="1.5"/></g>
+    <style>
+      @keyframes metricPulse{0%,100%{opacity:.6}50%{opacity:1}}
+      @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.9}}
+      @keyframes markBreath{0%,100%{opacity:.3}82%{opacity:.66}}
+      @keyframes stripPulse{0%,100%{opacity:.3}50%{opacity:.7}}
+      @keyframes glitch{0%,7%,60%,100%{transform:translate(0,0)}61%{transform:translate(-2px,0)}63%{transform:translate(2px,1px)}65%{transform:translate(-1px,-1px)}8%{transform:translate(1.5px,0)}10%{transform:translate(-1.5px,0)}12%{transform:translate(0,0)}}
+      .mp{animation:metricPulse 8s ease-in-out infinite}
+      .tw{animation:twinkle 8s ease-in-out infinite}
+      .mb{animation:markBreath 8s ease-in-out infinite}
+      .sp{animation:stripPulse 8s ease-in-out infinite}
+      .wm-main{animation:glitch 8s steps(1,end) infinite}
+      @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="320" rx="26" fill="url(#plate)"/>
+  <g clip-path="url(#plateClip)">
+    <!-- aurora blobs -->
+    <circle cx="300" cy="110" r="150" fill="url(#auroraP)" filter="url(#soft)"><animate attributeName="cx" values="300;360;300" dur="17s" repeatCount="indefinite"/></circle>
+    <circle cx="1060" cy="240" r="160" fill="url(#auroraG)" filter="url(#soft)"><animate attributeName="cy" values="240;190;240" dur="15s" repeatCount="indefinite"/></circle>
+    <!-- diagonal energy strips -->
+    <g class="sp" transform="rotate(-35 640 160)" stroke-width="2">
+      <line x1="-200" y1="40" x2="1480" y2="40" stroke="#E91E8C" opacity="0.14"/>
+      <line x1="-200" y1="240" x2="1480" y2="240" stroke="#E91E8C" opacity="0.1"/>
+      <line x1="-200" y1="440" x2="1480" y2="440" stroke="#E91E8C" opacity="0.12"/>
+    </g>
+    <!-- stars -->
+    <g fill="#ffe9f4">
+      <circle class="tw" cx="180" cy="46" r="1.6"/><circle class="tw" cx="520" cy="40" r="1.4" style="animation-delay:-2s"/>
+      <circle class="tw" cx="760" cy="56" r="1.8" style="animation-delay:-3s"/><circle class="tw" cx="1120" cy="44" r="1.5" style="animation-delay:-1s"/>
+      <circle class="tw" cx="960" cy="70" r="1.3" style="animation-delay:-4s"/><circle class="tw" cx="640" cy="30" r="1.3" style="animation-delay:-2.6s"/>
+    </g>
+    <!-- scanlines -->
+    <rect x="0" y="0" width="1280" height="320" fill="url(#scan)" opacity="0.35"/>
+    <!-- beam sweep (one per loop) -->
+    <rect x="-260" y="0" width="220" height="320" fill="url(#beam)" opacity="0.45" transform="skewX(-18)">
+      <animate attributeName="x" values="-300;-300;1500;1500" keyTimes="0;0.12;0.5;1" dur="8s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- ================= RIGHT: STORY ================= -->
+    <!-- pipeline rail -->
+    <line x1="600" y1="104" x2="1196" y2="104" stroke="#6b2347" stroke-width="2" stroke-dasharray="2 6" opacity="0.8"/>
+    <!-- node A: buyer wallet -->
+    <g>
+      <rect x="576" y="86" width="48" height="36" rx="7" fill="#241019" stroke="#FF007A" stroke-width="1.6"/>
+      <rect x="576" y="86" width="48" height="11" rx="5" fill="#FF007A" opacity="0.45"/>
+      <circle cx="614" cy="108" r="3.5" fill="#FF4DA6"/>
+      <text x="600" y="140" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#c98bab">agent</text>
+    </g>
+    <!-- x402 gate -->
+    <g>
+      <path d="M838 80 L864 94 L864 118 L838 132 L812 118 L812 94 Z" fill="#2b0a1c" stroke="#FF007A" stroke-width="1.8">
+        <animate attributeName="stroke" values="#FF007A;#FFD166;#FF007A;#FF007A" keyTimes="0;0.42;0.5;1" dur="8s" repeatCount="indefinite"/>
+      </path>
+      <text x="838" y="111" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="700" fill="#FF9ECB">402</text>
+      <text x="838" y="152" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#c98bab">x402 · 0.05 USDC</text>
+    </g>
+    <!-- node C: receipt block -->
+    <g>
+      <path d="M1044 82 L1070 96 L1070 112 L1044 126 L1018 112 L1018 96 Z" fill="#231604" stroke="#FFB300" stroke-width="1.6"/>
+      <text x="1044" y="108" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" fill="#FFD166">0x·✓</text>
+      <text x="1044" y="140" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#cfa96a">receipt</text>
+      <!-- receipt ripple on packet arrival -->
+      <circle cx="1044" cy="104" r="10" fill="none" stroke="#FFD166" stroke-width="2.5">
+        <animate attributeName="r" values="8;8;40;40" keyTimes="0;0.5;0.66;1" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;0.9;0;0" keyTimes="0;0.5;0.54;0.68;1" dur="8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <!-- node D: public ledger -->
+    <g>
+      <rect x="1174" y="86" width="44" height="36" rx="7" fill="#241019" stroke="#FFB300" stroke-width="1.6"/>
+      <g stroke="#FFD166" stroke-width="1.6"><line x1="1182" y1="97" x2="1210" y2="97"/><line x1="1182" y1="104" x2="1210" y2="104"/><line x1="1182" y1="111" x2="1204" y2="111"/></g>
+      <text x="1196" y="140" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" fill="#cfa96a">ledger</text>
+    </g>
+    <!-- packet comet along the rail -->
+    <g>
+      <circle r="15" fill="url(#packet)" filter="url(#trail)"/>
+      <circle r="5" fill="#ffffff"><animate attributeName="fill" values="#ffffff;#ffffff;#FFD166;#FFD166" keyTimes="0;0.42;0.5;1" dur="8s" repeatCount="indefinite"/></circle>
+      <animateMotion path="M600 104 L1196 104" keyPoints="0;0;1;1" keyTimes="0;0.14;0.74;1" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.13;0.16;0.74;0.8;1" dur="8s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- two-panes: the pick / the ledger -->
+    <!-- PICK pane (unseals) -->
+    <g>
+      <rect x="592" y="176" width="296" height="104" rx="12" fill="#160b12" fill-opacity="0.78" stroke="#47243a" stroke-width="1.4"/>
+      <text x="612" y="204" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="12" letter-spacing="2" fill="#8b6478">NEXT PICK · SF · FRA VS ESP</text>
+      <!-- sealed state -->
+      <g><animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.52;0.575;0.97;1" dur="8s" repeatCount="indefinite"/>
+        <rect x="612" y="222" width="164" height="24" rx="6" fill="#2b0a1c" stroke="#FF007A" stroke-width="1.3"/>
+        <text x="622" y="239" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" letter-spacing="3" fill="#FF9ECB">▓▓▓ @ ▓.▓▓</text>
+        <use href="#lk" x="754" y="227" color="#FF9ECB"/>
+        <text x="612" y="268" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" fill="#8b6478">pay to reveal · no keys, no accounts</text>
+      </g>
+      <!-- revealed state -->
+      <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.585;0.64;0.97;1" dur="8s" repeatCount="indefinite"/>
+        <text x="612" y="240" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="19" font-weight="700" fill="#FF4DA6">FRA ML @ 2.10 · edge +12%</text>
+        <text x="612" y="264" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" fill="#d9a9c2">ladder R1 1% · R2 2% · R3 3%</text>
+      </g>
+    </g>
+    <!-- LEDGER pane (CLV pop) -->
+    <g>
+      <rect x="904" y="176" width="312" height="104" rx="12" fill="#171004" fill-opacity="0.78" stroke="#FFB300" stroke-width="1.5"/>
+      <text x="924" y="204" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="12" letter-spacing="2" fill="#c9a35f">SETTLED LEDGER · LOSSES INCLUDED</text>
+      <text x="924" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" fill="#d8c9a8">QF: ENG 1.85 ✓ · paid T−46h</text>
+      <rect x="924" y="250" width="132" height="22" rx="6" fill="#231604" stroke="#FFB300" stroke-width="1.2"/>
+      <text x="934" y="266" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#FFD166">0x9c2e…77aa ↗</text>
+      <!-- CLV badge pops late in the loop -->
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.74;0.8;0.97;1" dur="8s" repeatCount="indefinite"/>
+        <rect x="1078" y="246" width="118" height="30" rx="15" fill="url(#edge)"/>
+        <text x="1137" y="266" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" font-weight="700" fill="#1a1102">CLV +6.8%</text>
+      </g>
+    </g>
+
+    <!-- ================= LEFT: BRAND ================= -->
+    <!-- glow-breath duplicate of mini mark -->
+    <g class="mb" filter="url(#soft)">
+      <path d="M66 138 L84 116 L98 124 L136 82" fill="none" stroke="#FF007A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- mini mark: two ledger rows + rising arrow -->
+    <g filter="url(#glow)">
+      <rect x="58" y="92" width="66" height="20" rx="6" fill="#1c1220" stroke="#47243a" stroke-width="1.6"/>
+      <rect x="58" y="120" width="66" height="20" rx="6" fill="#1c1220" stroke="#47243a" stroke-width="1.6"/>
+      <circle cx="112" cy="102" r="4" fill="#FFB300"/>
+      <circle cx="112" cy="130" r="4" fill="none" stroke="#FF007A" stroke-width="2"/>
+      <path d="M66 138 L84 116 L98 124 L130 88" fill="none" stroke="url(#edge)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M136 78 L134 96 L119 84 Z" fill="#FFB300"/>
+    </g>
+
+    <!-- outlined wordmark: Edge (white) + Ledger (pink→gold gradient) -->
+    <g transform="translate(156,124) scale(0.9)">
+      <!-- chromatic ghosts -->
+      <g fill="#FF007A" opacity="0.3" transform="translate(-2.6,0)"><use href="#wm-edge"/><use href="#wm-ledger" x="178.3"/></g>
+      <g fill="#FFB300" opacity="0.3" transform="translate(2.6,0)"><use href="#wm-edge"/><use href="#wm-ledger" x="178.3"/></g>
+      <!-- main -->
+      <g class="wm-main">
+        <use href="#wm-edge" fill="#f1f5f9"/>
+        <use href="#wm-ledger" x="178.3" fill="url(#ledgerGrad)"/>
+        <!-- shimmer sweep over Ledger -->
+        <g clip-path="url(#ledgerClip)">
+          <rect x="150" y="-54" width="34" height="62" fill="#ffffff" opacity="0.55" transform="skewX(-20)">
+            <animate attributeName="x" values="150;150;440;440" keyTimes="0;0.28;0.5;1" dur="8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0;0.6;0;0" keyTimes="0;0.28;0.4;0.52;1" dur="8s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+      </g>
+    </g>
+
+    <!-- tagline -->
+    <text x="60" y="176" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="19" font-weight="600" fill="#f0dbe6">Lock the line. Prove the pick.</text>
+    <!-- hero metric (pulsing) -->
+    <text class="mp" x="60" y="206" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13.5" fill="#FFD166">Paid 46h before kickoff — the receipt can't lie.</text>
+    <!-- divider -->
+    <rect x="60" y="224" width="360" height="1" fill="#6b2347" opacity="0.6"/>
+    <!-- tech pills -->
+    <text x="60" y="250" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" fill="#9a6f85" letter-spacing="0.4">Injective x402 · USDC CCTP · MCP Server · Agent Skills</text>
+  </g>
+  <rect x="0.75" y="0.75" width="1278.5" height="318.5" rx="25.5" fill="none" stroke="#4a2338" stroke-width="1.5" opacity="0.7"/>
+</svg>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LineLock — Pitch</title>
+<meta name="description" content="LineLock pitch — a pay-per-pick World Cup edge API on Injective EVM where the x402 USDC receipt is the pre-kickoff proof, plus a free CLV-scored public ledger.">
+<link rel="canonical" href="https://edycutjong.github.io/linelock/pitch/">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0A0A12">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="LineLock — Pitch">
+<meta property="og:description" content="Lock the line. Prove the pick. A pay-per-pick World Cup edge API on Injective EVM — the x402 USDC receipt is the pre-kickoff proof, plus a free CLV-scored public ledger.">
+<meta property="og:url" content="https://edycutjong.github.io/linelock/pitch/">
+<meta property="og:image" content="https://edycutjong.github.io/linelock/readme-hero-animated.svg">
+<meta property="og:image:alt" content="LineLock — lock the line, prove the pick">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LineLock — Pitch">
+<meta name="twitter:description" content="Lock the line. Prove the pick. Pay-per-pick World Cup edge API on Injective EVM — the x402 receipt is the pre-kickoff proof.">
+<meta name="twitter:image" content="https://edycutjong.github.io/linelock/readme-hero-animated.svg">
+<style>
+  :root{
+    --pink:#FF007A; --pink-br:#FF4DA6; --pink-dp:#C4005E;
+    --gold:#FFB300; --gold-br:#FFD166;
+    --bg:#0A0A12; --bg2:#0F0F1C; --card:#14141f; --line:#23233a;
+    --hi:#F8FAFC; --mid:#94A3B8; --low:#5b6478;
+    --win:#22C55E; --loss:#64708a;
+    --fd: "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-snap-type:y mandatory; scroll-behavior:smooth; background:var(--bg)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0; font-family:var(--fd); color:var(--hi); background:
+      radial-gradient(1200px 800px at 78% -10%, rgba(255,0,122,.10), transparent 60%),
+      radial-gradient(900px 700px at 5% 110%, rgba(255,179,0,.08), transparent 55%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;}
+  .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+  .slide{width:100vw; min-height:100vh; scroll-snap-align:start; display:grid; place-items:center; padding:4vh 5vw; position:relative}
+  .inner{width:min(1180px,100%); aspect-ratio:16/9; background:linear-gradient(180deg,var(--bg2),#0b0b16);
+    border:1px solid var(--line); border-radius:18px; padding:clamp(26px,4.4vw,64px);
+    display:flex; flex-direction:column; position:relative; overflow:hidden;
+    box-shadow:0 40px 120px -50px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.03)}
+  .inner::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background:repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px)}
+  .strip{position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pink),var(--gold))}
+
+  .eyebrow{font-size:12.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--mid); font-weight:700;
+    display:flex; align-items:center; gap:12px}
+  .eyebrow b{color:var(--pink); font-weight:800}
+  .num{margin-left:auto; color:var(--low); letter-spacing:.1em}
+  h1{font-size:clamp(40px,7.4vw,104px); line-height:.92; margin:0; font-weight:800; letter-spacing:-.03em; text-wrap:balance}
+  h2{font-size:clamp(26px,3.9vw,52px); line-height:1.02; margin:0; font-weight:800; letter-spacing:-.02em; text-wrap:balance}
+  .lede{font-size:clamp(16px,1.75vw,23px); color:var(--mid); line-height:1.5; max-width:60ch; margin:0}
+  .grad{background:linear-gradient(92deg,var(--pink-br),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  p{margin:0}
+  .push{margin-top:auto}
+  .row{display:flex; gap:14px; flex-wrap:wrap}
+  .col{display:flex; flex-direction:column; gap:14px}
+  .center{justify-content:center; text-align:center; align-items:center}
+
+  /* receipt / ledger motifs */
+  .chip{display:inline-flex; align-items:center; gap:9px; padding:7px 13px; border:1px solid var(--line);
+    border-radius:999px; background:#0e0e19; font-size:13px}
+  .chip .k{color:var(--low); text-transform:uppercase; letter-spacing:.14em; font-size:10.5px; font-weight:700; font-family:var(--fd)}
+  .tag{color:var(--gold); font-weight:700}
+  .ok{color:var(--win); font-weight:700}
+  .ledger{width:100%; border-collapse:separate; border-spacing:0 8px; font-size:14px}
+  .ledger td{padding:12px 14px; background:#0e0e19; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .ledger td:first-child{border-left:1px solid var(--line); border-radius:10px 0 0 10px}
+  .ledger td:last-child{border-right:1px solid var(--line); border-radius:0 10px 10px 0}
+  .clv-pos{color:var(--win); font-weight:700} .clv-neg{color:var(--loss); font-weight:700}
+  .badge{display:inline-block; padding:3px 9px; border-radius:6px; font-size:11.5px; font-weight:800; letter-spacing:.04em}
+  .b-win{background:rgba(34,197,94,.14); color:#7ff0b0} .b-loss{background:rgba(100,112,138,.16); color:#aeb7c9}
+
+  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+  .cards.four{grid-template-columns:repeat(4,1fr)}
+  .cards.three{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:7px}
+  .card .h{font-weight:800; font-size:16px; letter-spacing:-.01em}
+  .card .d{color:var(--mid); font-size:13.5px; line-height:1.45}
+  .card .kx{font-family:var(--mono); font-size:11.5px; color:var(--pink-br); letter-spacing:.02em}
+  .stat{font-family:var(--mono); font-size:clamp(26px,3.6vw,46px); font-weight:700; line-height:1; letter-spacing:-.02em}
+  .flow{display:flex; align-items:stretch; gap:10px; flex-wrap:wrap}
+  .step{flex:1 1 0; min-width:120px; background:#0e0e19; border:1px solid var(--line); border-radius:12px; padding:14px 15px}
+  .step .n{font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.1em}
+  .step .t{font-weight:700; font-size:14px; margin-top:6px; line-height:1.25}
+  .arrow{align-self:center; color:var(--pink); font-size:18px}
+  .big{font-size:clamp(20px,2.4vw,30px); font-weight:800; letter-spacing:-.01em; line-height:1.25; text-wrap:balance}
+  .muted{color:var(--mid)}
+  .kbd{font-family:var(--mono); color:var(--pink-br)}
+  a{color:var(--gold-br); text-decoration:none}
+
+  .nav{position:fixed; right:16px; bottom:16px; display:flex; gap:6px; z-index:10}
+  .dot{width:8px; height:8px; border-radius:50%; background:#2a2a40; border:0; padding:0; cursor:pointer}
+  .dot[aria-current="true"]{background:var(--pink); box-shadow:0 0 10px var(--pink)}
+  .hint{position:fixed; left:16px; bottom:14px; color:var(--low); font-size:11.5px; letter-spacing:.08em; z-index:10; font-family:var(--mono)}
+
+  @media (max-width:820px){ .inner{aspect-ratio:auto; min-height:88vh} .cards,.cards.four,.cards.three{grid-template-columns:1fr 1fr} h1{font-size:52px} }
+  @media print{
+    @page{size:1280px 720px; margin:0}
+    html,body{background:var(--bg)}
+    .nav,.hint{display:none}
+    .slide{width:1280px; height:720px; min-height:0; padding:22px; page-break-after:always; break-after:page; scroll-snap-align:none}
+    .inner{aspect-ratio:auto; height:100%; box-shadow:none}
+    .grad{background:none; -webkit-text-fill-color:#FFD166; color:#FFD166}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow"><b>Injective Global Cup</b> · x402 <span class="num">LineLock · 01</span></div>
+  <div class="push"></div>
+  <h1>Edge<span class="grad">Ledger</span></h1>
+  <p class="big" style="margin-top:18px">Lock the line. <span class="grad">Prove the pick.</span></p>
+  <p class="lede" style="margin-top:16px">Every World Cup tipster shows you screenshots.<br>LineLock shows you <b style="color:var(--hi)">receipts</b>.</p>
+  <div class="push"></div>
+  <div class="row" style="align-items:center">
+    <span class="chip"><span class="k">receipt</span> <span class="mono">0x7a3f…e91d</span> <span class="ok">▲ 46h pre-kickoff</span></span>
+    <span class="chip"><span class="k">clv</span> <span class="mono" style="color:var(--win)">+6.8%</span> <span class="muted">vs close</span></span>
+    <span class="mono" style="margin-left:auto; color:var(--low); font-size:12.5px">x402 · CCTP · MCP · Agent Skills</span>
+  </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">The problem <span class="num">02</span></div>
+  <h2 style="margin-top:20px">A track record is a <span class="grad">screenshot</span>.</h2>
+  <p class="lede" style="margin-top:18px">Tipster records are post-hoc, curated, unfalsifiable. Buyers can't tell edge from survivorship — and sellers with <i>real</i> edge can't prove it either. There is no neutral timestamp authority for a prediction.</p>
+  <div class="push"></div>
+  <div class="cards three">
+    <div class="card"><div class="h">Post-hoc</div><div class="d">Posted after the whistle, or quietly deleted when wrong.</div></div>
+    <div class="card"><div class="h">Curated</div><div class="d">Wins amplified, losses vanish. Survivorship sells.</div></div>
+    <div class="card"><div class="h">Unverifiable</div><div class="d">No block, no timestamp, no way to check the claim.</div></div>
+  </div>
+  <p class="lede" style="margin-top:20px; color:var(--gold-br)">The World Cup knockout window is peak scam season. A bettor with a real 15–9 record gets called a fraud on every win.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">The solution <span class="num">03</span></div>
+  <h2 style="margin-top:20px">Payment and proof are the <span class="grad">same act</span>.</h2>
+  <p class="lede" style="margin-top:16px">A pay-per-pick API on Injective EVM. You pay <b class="mono" style="color:var(--hi)">0.05 USDC</b> via x402 for the next knockout edge — model probability vs market odds, plus a conviction staking ladder. The x402 receipt (650&nbsp;ms finality, immutable) timestamps the pick <b style="color:var(--hi)">before kickoff</b>.</p>
+  <div class="push"></div>
+  <table class="ledger mono">
+    <tr><td>FRA ML · banker</td><td>entry <b>1.71</b></td><td>close <b>1.60</b></td><td><span class="clv-pos">CLV +6.8%</span></td><td><span class="badge b-win">WON</span></td><td style="color:var(--gold)">0x7a3f…e91d ↗</td></tr>
+    <tr><td>ENG −0.5 · rung 2</td><td>entry <b>1.95</b></td><td>close <b>2.02</b></td><td><span class="clv-neg">CLV −1.8%</span></td><td><span class="badge b-loss">LOST</span></td><td style="color:var(--gold)">0x41c8…7d2a ↗</td></tr>
+  </table>
+  <p class="lede" style="margin-top:18px">After the match, a CLV engine scores every pick against the closing line and publishes it to a <b style="color:var(--hi)">free public ledger</b>. Buy the next pick for five cents; audit every previous pick for free.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">The mechanic · <b>the depth</b> <span class="num">04</span></div>
+  <h2 style="margin-top:16px">Closing-line value is the <span class="grad">luck-proof</span> metric.</h2>
+  <div class="cards" style="margin-top:22px">
+    <div class="card"><div class="kx">receipt-as-timestamp</div><div class="h">The payment IS the notary</div><div class="d">Block time &lt; kickoff is checkable by anyone on the explorer. No custom contract needed — <span class="mono">sha256(pick)</span> is bound to the receipt in the same ledger row.</div></div>
+    <div class="card"><div class="kx">clv = implied(entry) − implied(close)</div><div class="h">Skill, not variance</div><div class="d">Positive CLV across a sample = real edge, independent of win/loss noise — the metric pro syndicates actually use, computed by code, not claimed in a tweet.</div></div>
+  </div>
+  <div class="push"></div>
+  <div class="chip" style="align-self:flex-start"><span class="k">invariant</span> <span class="mono" style="color:var(--hi)">receipts.count === ledger.rows</span> <span class="muted">— a missing loss is detectable by any auditor holding a receipt</span></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">One flow, extreme depth <span class="num">05</span></div>
+  <h2 style="margin-top:18px">Pay → pick → receipt → <span class="grad">closing line → CLV → ledger</span></h2>
+  <div class="push"></div>
+  <div class="flow">
+    <div class="step"><div class="n">01 · x402</div><div class="t">Agent pays 0.05 USDC</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">02 · 650ms</div><div class="t">Receipt = pre-kickoff proof</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">03 · odds</div><div class="t">Closing line frozen at KO</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">04 · result</div><div class="t">CLV scored vs close</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">05 · public</div><div class="t">Ledger row, losses kept</div></div>
+  </div>
+  <div class="push"></div>
+  <p class="lede">Live on Injective mainnet, fed by live World Cup fixtures, zero mocks. Everything else exists to make this one flow undeniable.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">Why only Injective · <b>load-bearing</b> <span class="num">06</span></div>
+  <h2 style="margin-top:16px">Remove Injective and you need <span class="grad">four systems</span>.</h2>
+  <div class="cards four" style="margin-top:22px">
+    <div class="card"><div class="kx">x402</div><div class="h">Pay = notarize</div><div class="d">injectivePaymentMiddleware gates /api/edge; the receipt is the timestamp.</div></div>
+    <div class="card"><div class="kx">MCP Server</div><div class="h">Balance & config</div><div class="d">account_balances · usdc_native_info · address_normalize, driven by the Skill.</div></div>
+    <div class="card"><div class="kx">Agent Skills</div><div class="h">Distribution</div><div class="d">worldcup-linelock — any harness becomes a buyer, no API key.</div></div>
+    <div class="card"><div class="kx">USDC CCTP</div><div class="h">Funding</div><div class="d">Burn on Base → Iris → cctp_mint. Empty wallet → funded, cross-chain.</div></div>
+  </div>
+  <div class="push"></div>
+  <p class="lede">Plus <b class="mono" style="color:var(--gold-br)">LedgerAnchor.sol</b> on Injective EVM — a daily Merkle root of pick-hashes makes the database itself tamper-evident. <span class="muted">Without Injective: a payment processor + a timestamp authority + a bridge + an agent-integration layer.</span></p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">Built &amp; independently verified <span class="num">07</span></div>
+  <h2 style="margin-top:16px">Real code. Real 402. <span class="grad">Honest gaps.</span></h2>
+  <div class="row" style="margin-top:22px; gap:26px">
+    <div class="col" style="flex:1"><div class="stat" style="color:var(--win)">63/63</div><div class="muted" style="font-size:13.5px">tests green — edge · ladder · CLV · hash · settle · invariants I1–I5 · 402 handshake</div></div>
+    <div class="col" style="flex:1"><div class="stat" style="color:var(--pink-br)">HTTP&nbsp;402</div><div class="muted" style="font-size:13.5px">live quote on <span class="mono">eip155:1776</span> · 0.05 USDC · eip3009 — booted &amp; curled</div></div>
+    <div class="col" style="flex:1"><div class="stat">24</div><div class="muted" style="font-size:13.5px">CLV-scored ledger rows · losses kept · 5 screens · LedgerAnchor.sol</div></div>
+  </div>
+  <div class="push"></div>
+  <div class="chip" style="align-self:flex-start; border-color:var(--gold)"><span class="k" style="color:var(--gold)">honesty</span> <span class="muted">Live paid mainnet receipt &amp; CCTP mint are funds-gated — seed rows labeled <span class="mono">is_placeholder</span>, the smoke script refuses rather than fake a hash.</span></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <div class="strip"></div>
+  <div class="eyebrow">The moat <span class="num">08</span></div>
+  <h2 style="margin-top:18px">The <span class="grad">asymmetry</span> is the product.</h2>
+  <p class="lede" style="margin-top:18px">My wins are provable and my losses are public. A real, live, settled 2026 World Cup record — the one asset no competitor can fabricate — becomes a verifiable credential the instant each pick is paid for.</p>
+  <div class="push"></div>
+  <p class="big">Post to X: platform-mutable, deletable, unverifiable.<br><span class="grad">An x402 receipt: an immutable, third-party block time.</span></p>
+  <p class="lede" style="margin-top:18px; color:var(--gold-br)">The losses kept public <i>are</i> the credibility.</p>
+</div></section>
+
+<section class="slide"><div class="inner center" style="justify-content:center">
+  <div class="strip"></div>
+  <h2 style="font-size:clamp(30px,5vw,64px)">Buy the next pick for <span class="grad">five cents</span>.<br>Audit every past pick for <span class="grad">free</span>.</h2>
+  <div class="row center" style="margin-top:34px; gap:12px">
+    <span class="chip"><span class="k">repo</span> <span class="mono">github.com/edycutjong/linelock</span></span>
+    <span class="chip"><span class="k">live</span> <span class="mono">linelock.edycu.dev</span></span>
+  </div>
+  <p class="mono" style="margin-top:26px; color:var(--low); letter-spacing:.12em; font-size:13px">x402 &nbsp;·&nbsp; USDC CCTP &nbsp;·&nbsp; MCP SERVER &nbsp;·&nbsp; AGENT SKILLS</p>
+  <p class="eyebrow" style="margin-top:10px">@NinjaLabsHQ · #InjectiveGlobalCupHackathon</p>
+</div></section>
+
+<div class="nav" id="nav" aria-hidden="true"></div>
+<div class="hint">↑ ↓ / space to navigate · P to print</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')], nav=document.getElementById('nav');
+  slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Slide '+(i+1));
+    b.onclick=()=>s.scrollIntoView();nav.appendChild(b);});
+  const dots=[...nav.children];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=slides.indexOf(e.target);
+    dots.forEach((d,j)=>d.setAttribute('aria-current',j===i))}}),{threshold:.55});
+  slides.forEach(s=>io.observe(s));
+  let i=0; const go=n=>{i=Math.max(0,Math.min(slides.length-1,n));slides[i].scrollIntoView()};
+  addEventListener('keydown',e=>{
+    if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+    else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}
+    else if(e.key==='p'||e.key==='P'){window.print()}});
+</script>
+
+</body>
+</html>

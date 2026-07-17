@@ -1,0 +1,68 @@
+{
+  "name": "linelock",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "LineLock — lock the line, prove the pick. Pay-per-pick World Cup edge API on Injective EVM x402 + a free CLV-scored public ledger.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edycutjong/linelock-inj.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "api": "tsx api/server.ts",
+    "start": "tsx api/server.ts",
+    "settle": "tsx scripts/settle.ts",
+    "bench": "tsx scripts/bench.ts",
+    "buyer": "tsx scripts/buyer.ts",
+    "readiness": "tsx scripts/check_submission_readiness.ts",
+    "audit": "tsx scripts/audit.ts",
+    "paid-smoke": "tsx scripts/paid-call-smoke.ts",
+    "snapshot": "tsx data/snapshot.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "lighthouse": "lhci autorun",
+    "ci": "npm run typecheck && npm run test:coverage",
+    "web:dev": "npm --prefix web run dev",
+    "web:build": "npm --prefix web run build",
+    "web:start": "npm --prefix web run start"
+  },
+  "dependencies": {
+    "@injectivelabs/x402": "^0.0.1",
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.6.0",
+    "viem": "^2.55.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.52.0",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.5",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "tmp": "^0.2.6",
+    "cookie": "^0.7.2",
+    "uuid": "^11.1.1",
+    "esbuild": ">=0.28.1"
+  }
+}

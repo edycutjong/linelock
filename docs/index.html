@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LineLock — lock the line, prove the pick</title>
+  <meta name="description" content="A pay-per-pick World Cup edge API on Injective EVM where the x402 USDC receipt IS the pre-kickoff timestamp — plus a free public ledger that CLV-scores every settled pick, losses included.">
+  <link rel="canonical" href="https://edycutjong.github.io/linelock/">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0A0A12">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LineLock — lock the line, prove the pick">
+  <meta property="og:description" content="A pay-per-pick World Cup edge API on Injective EVM where the x402 USDC receipt IS the pre-kickoff timestamp — plus a free, CLV-scored public ledger.">
+  <meta property="og:url" content="https://edycutjong.github.io/linelock/">
+  <meta property="og:image" content="https://edycutjong.github.io/linelock/readme-hero-animated.svg">
+  <meta property="og:image:alt" content="LineLock — lock the line, prove the pick">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LineLock — lock the line, prove the pick">
+  <meta name="twitter:description" content="Pay-per-pick World Cup edge API on Injective EVM. The x402 USDC receipt is the pre-kickoff proof; a free public ledger CLV-scores every settled pick.">
+  <meta name="twitter:image" content="https://edycutjong.github.io/linelock/readme-hero-animated.svg">
+
+  <style>
+    :root{
+      --pink:#FF007A; --pink-br:#FF4DA6; --gold:#FFB300; --gold-br:#FFD166;
+      --bg:#0A0A12; --bg2:#0F0F1C; --card:#14141f; --line:#23233a;
+      --hi:#F8FAFC; --mid:#94A3B8; --low:#5b6478;
+      --win:#22C55E;
+      --fd:"Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono:ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg); scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important}}
+    body{margin:0; font-family:var(--fd); color:var(--hi); line-height:1.6;
+      background:
+        radial-gradient(1200px 800px at 78% -10%, rgba(255,0,122,.12), transparent 60%),
+        radial-gradient(900px 700px at 5% 110%, rgba(255,179,0,.09), transparent 55%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased; min-height:100vh}
+    a{color:var(--pink-br); text-decoration:none}
+    .wrap{width:min(1080px,92vw); margin:0 auto}
+    .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+    .grad{background:linear-gradient(92deg,var(--pink-br),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
+
+    /* hero */
+    header{padding:clamp(56px,10vh,120px) 0 clamp(40px,7vh,80px); text-align:center}
+    .logo{width:112px; height:112px; margin:0 auto 20px; display:block;
+      filter:drop-shadow(0 10px 40px rgba(255,0,122,.35))}
+    h1{font-size:clamp(46px,9vw,96px); line-height:.92; margin:0; font-weight:800; letter-spacing:-.03em}
+    .tag{font-size:clamp(17px,2.4vw,26px); color:var(--hi); font-weight:700; margin:18px 0 8px; letter-spacing:-.01em}
+    .sub{font-size:clamp(15px,1.8vw,19px); color:var(--mid); max-width:60ch; margin:0 auto; line-height:1.55}
+    .pills{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:26px}
+    .pill{display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border:1px solid var(--line);
+      border-radius:999px; background:#0e0e19; font-size:13px; color:var(--mid); font-weight:600}
+    .pill b{color:var(--gold); font-weight:800}
+
+    /* cta */
+    .cta{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:32px}
+    .btn{display:inline-flex; align-items:center; gap:9px; padding:14px 24px; border-radius:12px;
+      font-weight:800; font-size:15px; border:1px solid var(--line); transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:linear-gradient(92deg,var(--pink),var(--gold)); color:#0A0A12; border-color:transparent;
+      box-shadow:0 12px 40px -12px rgba(255,0,122,.6)}
+    .btn.ghost{background:#12121e; color:var(--hi)}
+    .btn.muted{background:transparent; color:var(--mid)}
+    .btn.muted b{color:var(--low); font-weight:700; font-size:12px; margin-left:2px}
+
+    /* sections */
+    section{padding:clamp(36px,6vh,64px) 0}
+    .eyebrow{font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--pink); font-weight:800; margin:0 0 14px}
+    h2{font-size:clamp(26px,4vw,40px); font-weight:800; letter-spacing:-.02em; margin:0 0 16px}
+    .lede{font-size:clamp(16px,2vw,21px); color:var(--mid); max-width:64ch; line-height:1.6; margin:0}
+    .lede b{color:var(--hi); font-weight:700}
+    .lede .p{color:var(--pink-br); font-weight:700}
+    .lede .g{color:var(--gold); font-weight:700}
+
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:8px}
+    .cardx{background:linear-gradient(180deg,var(--bg2),#0b0b16); border:1px solid var(--line); border-radius:16px;
+      padding:24px; box-shadow:0 30px 80px -50px rgba(0,0,0,.9)}
+    .cardx .n{font-family:var(--mono); font-size:12px; color:var(--low); font-weight:700; letter-spacing:.1em}
+    .cardx h3{font-size:18px; font-weight:800; margin:8px 0 8px; letter-spacing:-.01em}
+    .cardx p{margin:0; color:var(--mid); font-size:14.5px; line-height:1.55}
+    .cardx .bar{height:3px; width:40px; border-radius:3px; background:linear-gradient(90deg,var(--pink),var(--gold)); margin-bottom:14px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .b{font-family:var(--mono); font-size:12.5px; padding:6px 12px; border-radius:8px; background:#0e0e19;
+      border:1px solid var(--line); color:var(--mid)}
+    .b b{color:var(--hi); font-weight:700}
+
+    footer{border-top:1px solid var(--line); padding:32px 0 48px; margin-top:24px; text-align:center; color:var(--low); font-size:13.5px}
+    footer a{color:var(--mid)}
+    footer .dot{margin:0 8px; opacity:.5}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <img class="logo" src="./icon.svg" alt="LineLock logo" width="112" height="112">
+      <h1>Edge<span class="grad">Ledger</span></h1>
+      <p class="tag">Lock the line. Prove the pick.</p>
+      <p class="sub">A pay-per-pick World Cup edge API on <b style="color:var(--hi)">Injective EVM</b> where the x402 USDC receipt <em>is</em> the pre-kickoff timestamp — plus a free public ledger that CLV-scores every settled pick, losses included.</p>
+
+      <div class="pills">
+        <span class="pill"><b>70</b> tests passing</span>
+        <span class="pill">live HTTP <b>402</b> quote</span>
+        <span class="pill">Merkle anchor <b>contract</b></span>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="./pitch/">Pitch deck &rarr;</a>
+        <a class="btn ghost" href="https://github.com/edycutjong/linelock">GitHub</a>
+        <a class="btn muted" href="./STATUS.md">Live API<b>deploy pending</b></a>
+      </div>
+    </header>
+
+    <section>
+      <p class="eyebrow">What it is</p>
+      <h2>Every tipster shows you screenshots. LineLock shows you receipts.</h2>
+      <p class="lede">Buy the next World Cup knockout pick for <span class="p">5 cents</span> over x402: you get an edge, a conviction ladder, and a commit hash. The USDC payment tx's <b>block time &lt; kickoff</b> is the notarization — the receipt <em>is</em> the pre-kickoff proof. Then the match settles, the pick is <span class="g">CLV-scored</span>, and it lands on a free public ledger anyone can audit. <b>Buy the next pick. Audit every past pick for free.</b></p>
+    </section>
+
+    <section>
+      <p class="eyebrow">How it holds up</p>
+      <div class="cards">
+        <div class="cardx">
+          <div class="bar"></div>
+          <div class="n">01</div>
+          <h3>Pay-per-pick edge API</h3>
+          <p>One World Cup knockout edge per call — model probability, edge %, and a 4-rung conviction ladder, gated at 0.05 USDC over real <span class="mono">@injectivelabs/x402</span>.</p>
+        </div>
+        <div class="cardx">
+          <div class="bar"></div>
+          <div class="n">02</div>
+          <h3>x402 receipt = pre-kickoff proof</h3>
+          <p>The USDC settlement tx arrives in-band. Its on-chain block time sits before kickoff, bound to the pick hash in the same ledger row — you can't backdate a bet.</p>
+        </div>
+        <div class="cardx">
+          <div class="bar"></div>
+          <div class="n">03</div>
+          <h3>Free CLV-scored public ledger</h3>
+          <p>Every settled pick is scored on Closing Line Value — losses included, and wins that lost CLV kept. The system publishes its own bad prices.</p>
+        </div>
+        <div class="cardx">
+          <div class="bar"></div>
+          <div class="n">04</div>
+          <h3>On-chain Merkle anchor</h3>
+          <p>A write-once daily Merkle root of pick hashes on <span class="mono">LedgerAnchor.sol</span> proves the ledger DB was never rewritten after the fact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Built on</p>
+      <div class="badges">
+        <span class="b"><b>Injective</b> EVM · x402</span>
+        <span class="b">USDC <b>CCTP</b> V2</span>
+        <span class="b">Injective <b>MCP</b> Server</span>
+        <span class="b">Agent <b>Skills</b></span>
+        <span class="b"><b>Express</b> API</span>
+        <span class="b"><b>Next.js 14</b> ledger site</span>
+        <span class="b"><b>Vitest</b> · 70 green</span>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <a href="./pitch/">Pitch deck</a><span class="dot">·</span>
+        <a href="https://github.com/edycutjong/linelock">GitHub</a><span class="dot">·</span>
+        <a href="./STATUS.md">Status</a>
+      </div>
+      <p style="margin:14px 0 0">LineLock — built for the Injective Global Cup 2026. MIT © 2026 Edy Cu.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
