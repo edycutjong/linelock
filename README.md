@@ -29,6 +29,17 @@
 
 <p align="center">🌐 <strong><a href="https://linelock.edycu.dev/">Landing page</a></strong> · 📊 <strong><a href="https://linelock.edycu.dev/pitch/">Pitch deck</a></strong> (interactive — arrow keys · press <kbd>P</kbd> to print/PDF)</p>
 
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/03_paywall.png" alt="The live x402 paywall — HTTP 402 quoting 0.05 USDC on Injective EVM eip155:1776"/><br/><sub><b>The x402 paywall, live</b> — HTTP 402 quotes 0.05 USDC on <code>eip155:1776</code></sub></td>
+    <td width="50%"><img src="docs/screenshots/02_ledger.png" alt="The public CLV-scored ledger — 15–9, losses included"/><br/><sub><b>The public CLV ledger</b> — 15–9, +24.2% ROI, losses kept on purpose</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/05_audit.png" alt="npm run audit --all recomputes the whole track record and passes"/><br/><sub><b>One-command audit</b> — the whole track record recomputes and PASSES</sub></td>
+    <td width="50%"><img src="docs/screenshots/06_pickaudit.png" alt="Pick audit page — receipt predates kickoff, sha256 re-verifies in the browser"/><br/><sub><b>Pick audit</b> — receipt predates kickoff, sha256 re-verifies in the browser</sub></td>
+  </tr>
+</table>
+
 ---
 
 > **Every World Cup tipster shows you screenshots. LineLock shows you receipts.**
