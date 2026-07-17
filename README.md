@@ -6,9 +6,9 @@
 
   <br/><br/>
 
-  [![Live Site](https://img.shields.io/badge/Live_Site-linelock-FFB300?style=for-the-badge&labelColor=0B0A07)](https://edycutjong.github.io/linelock/)
-  [![Pitch Deck](https://img.shields.io/badge/Pitch-Deck-FF007A?style=for-the-badge&labelColor=0B0A07)](https://edycutjong.github.io/linelock/pitch/)
-  [![Live Demo](https://img.shields.io/badge/Live_Demo-deploy_pending-9AA0AA?style=for-the-badge&labelColor=0B0A07)](docs/STATUS.md)
+  [![Live Site](https://img.shields.io/badge/Live_Site-linelock-FFB300?style=for-the-badge&labelColor=0B0A07)](https://linelock.edycu.dev/)
+  [![Pitch Deck](https://img.shields.io/badge/Pitch-Deck-FF007A?style=for-the-badge&labelColor=0B0A07)](https://linelock.edycu.dev/pitch/)
+  [![Live API](https://img.shields.io/badge/Live_API-Railway-7B4DFF?style=for-the-badge&labelColor=0B0A07)](https://linelock-production.up.railway.app/api/ledger)
   [![Demo Video](https://img.shields.io/badge/%E2%96%B6_Demo_Video-YouTube-FF0000?style=for-the-badge&labelColor=0B0A07)](https://youtu.be/MHHYIJkLRbo)
   ![HackQuest · Injective Global Cup 2026](https://img.shields.io/badge/HackQuest-Injective_Global_Cup_2026-0082FA?style=for-the-badge&labelColor=0B0A07)
 
@@ -22,12 +22,12 @@
   ![Injective EVM](https://img.shields.io/badge/Injective-EVM_x402-00A3FF?style=flat)
   ![x402](https://img.shields.io/badge/x402-USDC_402-FF007A?style=flat)
   [![License: MIT](https://img.shields.io/badge/License-MIT-FFB300?style=flat)](LICENSE)
-  [![CI](https://github.com/edycutjong/linelock-inj/actions/workflows/ci.yml/badge.svg)](https://github.com/edycutjong/linelock-inj/actions/workflows/ci.yml)
+  [![CI](https://github.com/edycutjong/linelock/actions/workflows/ci.yml/badge.svg)](https://github.com/edycutjong/linelock/actions/workflows/ci.yml)
 </div>
 
 <p align="center"><code>Injective x402</code> · <code>USDC CCTP</code> · <code>MCP Server</code> · <code>Agent Skills</code> · <code>Injective EVM contract</code> · <code>Express</code> · <code>Next.js 14</code></p>
 
-<p align="center">🌐 <strong><a href="https://edycutjong.github.io/linelock/">Landing page</a></strong> · 📊 <strong><a href="https://edycutjong.github.io/linelock/pitch/">Pitch deck</a></strong> (interactive — arrow keys · press <kbd>P</kbd> to print/PDF)</p>
+<p align="center">🌐 <strong><a href="https://linelock.edycu.dev/">Landing page</a></strong> · 📊 <strong><a href="https://linelock.edycu.dev/pitch/">Pitch deck</a></strong> (interactive — arrow keys · press <kbd>P</kbd> to print/PDF)</p>
 
 ---
 
