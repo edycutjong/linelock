@@ -15,7 +15,7 @@ import { verifyPickHash } from '../engine/hash';
 import { buildMerkleTree, merkleProof } from '../engine/merkle';
 import {
   openDb, allRows, settledRows, rowByReceipt, rowCount, receiptCount,
-  computeStats, upsertMany, type DB,
+  computeStats, upsertRow, upsertMany, type DB,
 } from '../db/ledger';
 import type { LedgerRow, Side } from '../engine/types';
 import {
