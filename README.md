@@ -135,7 +135,7 @@ full ~25-second "402 → `--demo` 200 → `audit --all`" magic-moment beat.
   (402 → `--demo` 200 → audit) is the whole product, witnessed with zero funds — see [`DEMO.md`](docs/DEMO.md).
 - **Reproduce the whole core in <5 minutes:**
   ```bash
-  git clone https://github.com/edycutjong/linelock-inj && cd linelock-inj
+  git clone https://github.com/edycutjong/linelock && cd linelock
   npm install
   npm test                                        # 70 green: CLV · invariants I1–I5 · 402 handshake
   npm run settle && npm run audit -- --all        # build the ledger, then independently re-audit it
@@ -204,7 +204,7 @@ Five honestly-named Injective surfaces, each load-bearing:
 
 ### 3. Agent Skills — shipped `worldcup-linelock`
 - An installable markdown skill that teaches any harness to be a buyer: balance → pay → validate hash →
-  audit. `npx skills add https://github.com/edycutjong/linelock-inj --skill worldcup-linelock`. It is the
+  audit. `npx skills add https://github.com/edycutjong/linelock --skill worldcup-linelock`. It is the
   distribution channel — any agent becomes a customer with no API key.
   Code: [`skills/worldcup-linelock/SKILL.md`](skills/worldcup-linelock/SKILL.md).
 

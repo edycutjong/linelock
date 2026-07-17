@@ -21,7 +21,7 @@ CLV-scores every settled pick (losses included).
 Install:
 
 ```
-npx skills add https://github.com/edycutjong/linelock-inj --skill worldcup-linelock
+npx skills add https://github.com/edycutjong/linelock --skill worldcup-linelock
 ```
 
 Config: set `LINELOCK_API` (default `https://linelock.edycu.dev`) and, to
