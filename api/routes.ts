@@ -15,7 +15,7 @@ import { verifyPickHash } from '../engine/hash';
 import { buildMerkleTree, merkleProof } from '../engine/merkle';
 import {
   openDb, allRows, settledRows, rowByReceipt, rowCount, receiptCount,
-  computeStats, upsertRow, type DB,
+  computeStats, upsertMany, type DB,
 } from '../db/ledger';
 import type { LedgerRow, Side } from '../engine/types';
 import {
@@ -31,7 +31,10 @@ export function getDb(): DB {
   _db = openDb(PATHS.db);
   if (rowCount(_db) === 0 && fs.existsSync(PATHS.ledgerState)) {
     const state = JSON.parse(fs.readFileSync(PATHS.ledgerState, 'utf8'));
-    for (const r of state.rows as LedgerRow[]) upsertRow(_db, r as any);
+    // Single transaction: concurrent openers (parallel test workers) either see
+    // an empty ledger and re-run this idempotent seed, or the full row set —
+    // never a partially-seeded ledger.
+    upsertMany(_db, state.rows as any[]);
   }
   return _db;
 }
