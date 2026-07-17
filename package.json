@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "LineLock \u2014 lock the line, prove the pick. Pay-per-pick World Cup edge API on Injective EVM x402 + a free CLV-scored public ledger.",
+  "description": "LineLock — lock the line, prove the pick. Pay-per-pick World Cup edge API on Injective EVM x402 + a free CLV-scored public ledger.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edycutjong/linelock.git"
