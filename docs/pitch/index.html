@@ -7,7 +7,7 @@
 <meta name="description" content="LineLock pitch — a pay-per-pick World Cup edge API on Injective EVM where the x402 USDC receipt is the pre-kickoff proof, plus a free CLV-scored public ledger.">
 <link rel="canonical" href="https://edycutjong.github.io/linelock/pitch/">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#0A0A12">
+<meta name="theme-color" content="#050807">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="LineLock — Pitch">
@@ -20,109 +20,220 @@
 <meta name="twitter:title" content="LineLock — Pitch">
 <meta name="twitter:description" content="Lock the line. Prove the pick. Pay-per-pick World Cup edge API on Injective EVM — the x402 receipt is the pre-kickoff proof.">
 <meta name="twitter:image" content="https://edycutjong.github.io/linelock/readme-hero-animated.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
+  /* ============================================================
+     LINELOCK PITCH — audit-terminal / ledger noir
+     Same design system as the landing page: near-black ink,
+     ledger-green + amber accents, Space Grotesk / JetBrains Mono.
+     ============================================================ */
   :root{
-    --pink:#FF007A; --pink-br:#FF4DA6; --pink-dp:#C4005E;
-    --gold:#FFB300; --gold-br:#FFD166;
-    --bg:#0A0A12; --bg2:#0F0F1C; --card:#14141f; --line:#23233a;
-    --hi:#F8FAFC; --mid:#94A3B8; --low:#5b6478;
-    --win:#22C55E; --loss:#64708a;
-    --fd: "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --ink:#050807;            /* page background       */
+    --ink-2:#080d0a;          /* raised background     */
+    --paper:#0a120d;          /* card surface          */
+    --paper-2:#0d1710;        /* card hover surface    */
+    --term:#040a06;           /* terminal surface      */
+    --line:#1a2b20;           /* hairline borders      */
+    --line-hot:#2c5940;       /* hover borders         */
+    --green:#22ff88;          /* ledger green (accent) */
+    --green-soft:#7dffb9;     /* lighter green text    */
+    --green-dim:rgba(34,255,136,.14);
+    --amber:#ffc247;          /* amber accent          */
+    --amber-deep:#ffb300;
+    --red:#ff6b6b;            /* losses                */
+    --hi:#eaf6ee;             /* high-contrast text    */
+    --mid:#a9bfb1;            /* body text             */
+    --low:#7d948a;            /* muted text            */
+    --win:var(--green); --loss:var(--red);
+    --fd:'Space Grotesk',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --ease:cubic-bezier(.22,.85,.3,1);
   }
   *{box-sizing:border-box}
-  html{scroll-snap-type:y mandatory; scroll-behavior:smooth; background:var(--bg)}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{margin:0; font-family:var(--fd); color:var(--hi); background:
-      radial-gradient(1200px 800px at 78% -10%, rgba(255,0,122,.10), transparent 60%),
-      radial-gradient(900px 700px at 5% 110%, rgba(255,179,0,.08), transparent 55%),
-      var(--bg);
-    -webkit-font-smoothing:antialiased;}
+  html{scroll-snap-type:y mandatory; scroll-behavior:smooth; background:var(--ink)}
+  body{margin:0; font-family:var(--fd); color:var(--hi); background:var(--ink);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden}
   .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+  a{color:var(--green-soft); text-decoration:none}
+  ::selection{background:rgba(34,255,136,.25); color:var(--hi)}
+  :focus-visible{outline:2px solid var(--green); outline-offset:3px; border-radius:4px}
 
+  /* ---- animated backdrop: pulsing grid + drifting glows + grain ---- */
+  .backdrop{position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden}
+  .backdrop .grid{
+    position:absolute; inset:-2px;
+    background:
+      linear-gradient(rgba(34,255,136,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,255,136,.045) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 80%);
+    mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 80%);
+    animation:gridPulse 7s ease-in-out infinite;
+  }
+  @keyframes gridPulse{0%,100%{opacity:.55}50%{opacity:1}}
+  .backdrop .glow{position:absolute; width:60vw; height:60vw; border-radius:50%; filter:blur(90px); opacity:.5; will-change:transform}
+  .backdrop .glow.g1{top:-28vw; left:8vw; background:radial-gradient(circle,rgba(34,255,136,.12),transparent 65%); animation:drift1 26s ease-in-out infinite alternate}
+  .backdrop .glow.g2{top:20vh; right:-30vw; background:radial-gradient(circle,rgba(255,178,0,.07),transparent 65%); animation:drift2 34s ease-in-out infinite alternate}
+  @keyframes drift1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(9vw,7vh,0) scale(1.15)}}
+  @keyframes drift2{from{transform:translate3d(0,0,0) scale(1.1)}to{transform:translate3d(-8vw,-6vh,0) scale(.95)}}
+  .backdrop .scan{position:absolute; inset:0; opacity:.5;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.014) 0 1px,transparent 1px 3px)}
+  .backdrop .grain{position:absolute; inset:0; opacity:.32; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+  /* ---- slide frame ---- */
   .slide{width:100vw; min-height:100vh; scroll-snap-align:start; display:grid; place-items:center; padding:4vh 5vw; position:relative}
-  .inner{width:min(1180px,100%); aspect-ratio:16/9; background:linear-gradient(180deg,var(--bg2),#0b0b16);
+  .inner{width:min(1180px,100%); aspect-ratio:16/9; background:linear-gradient(180deg,var(--paper),#08110b);
     border:1px solid var(--line); border-radius:18px; padding:clamp(26px,4.4vw,64px);
     display:flex; flex-direction:column; position:relative; overflow:hidden;
-    box-shadow:0 40px 120px -50px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.03)}
+    box-shadow:0 40px 120px -50px rgba(0,0,0,.9), 0 0 60px -30px rgba(34,255,136,.22), inset 0 1px 0 rgba(255,255,255,.03)}
   .inner::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
     background:repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px)}
-  .strip{position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pink),var(--gold))}
+  .strip{position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--green),var(--amber));
+    box-shadow:0 0 18px rgba(34,255,136,.45); animation:stripPulse 4.5s ease-in-out infinite}
+  @keyframes stripPulse{0%,100%{opacity:.75}50%{opacity:1}}
 
-  .eyebrow{font-size:12.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--mid); font-weight:700;
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--green); font-weight:700;
     display:flex; align-items:center; gap:12px}
-  .eyebrow b{color:var(--pink); font-weight:800}
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--green); flex:none}
+  .eyebrow b{color:var(--amber); font-weight:700}
   .num{margin-left:auto; color:var(--low); letter-spacing:.1em}
-  h1{font-size:clamp(40px,7.4vw,104px); line-height:.92; margin:0; font-weight:800; letter-spacing:-.03em; text-wrap:balance}
-  h2{font-size:clamp(26px,3.9vw,52px); line-height:1.02; margin:0; font-weight:800; letter-spacing:-.02em; text-wrap:balance}
+  h1{font-size:clamp(40px,7.4vw,104px); line-height:.94; margin:0; font-weight:700; letter-spacing:-.035em; text-wrap:balance}
+  h2{font-size:clamp(26px,3.9vw,52px); line-height:1.06; margin:0; font-weight:700; letter-spacing:-.03em; text-wrap:balance}
   .lede{font-size:clamp(16px,1.75vw,23px); color:var(--mid); line-height:1.5; max-width:60ch; margin:0}
-  .grad{background:linear-gradient(92deg,var(--pink-br),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .grad{background:linear-gradient(93deg,var(--green) 20%,var(--green-soft) 55%,var(--amber));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 22px rgba(34,255,136,.35))}
   p{margin:0}
   .push{margin-top:auto}
   .row{display:flex; gap:14px; flex-wrap:wrap}
   .col{display:flex; flex-direction:column; gap:14px}
   .center{justify-content:center; text-align:center; align-items:center}
 
-  /* receipt / ledger motifs */
+  /* ---- receipt / ledger motifs ---- */
   .chip{display:inline-flex; align-items:center; gap:9px; padding:7px 13px; border:1px solid var(--line);
-    border-radius:999px; background:#0e0e19; font-size:13px}
+    border-radius:999px; background:var(--term); font-size:13px; font-family:var(--mono);
+    transition:border-color .3s var(--ease), box-shadow .3s var(--ease)}
+  .chip:hover{border-color:var(--line-hot); box-shadow:0 0 24px -10px rgba(34,255,136,.4)}
   .chip .k{color:var(--low); text-transform:uppercase; letter-spacing:.14em; font-size:10.5px; font-weight:700; font-family:var(--fd)}
-  .tag{color:var(--gold); font-weight:700}
-  .ok{color:var(--win); font-weight:700}
+  .tag{color:var(--amber); font-weight:700}
+  .ok{color:var(--green); font-weight:700; text-shadow:0 0 16px rgba(34,255,136,.5)}
   .ledger{width:100%; border-collapse:separate; border-spacing:0 8px; font-size:14px}
-  .ledger td{padding:12px 14px; background:#0e0e19; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .ledger td{padding:12px 14px; background:var(--term); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    transition:background .3s var(--ease), border-color .3s var(--ease)}
+  .ledger tr:hover td{background:var(--paper-2); border-color:var(--line-hot)}
   .ledger td:first-child{border-left:1px solid var(--line); border-radius:10px 0 0 10px}
   .ledger td:last-child{border-right:1px solid var(--line); border-radius:0 10px 10px 0}
   .clv-pos{color:var(--win); font-weight:700} .clv-neg{color:var(--loss); font-weight:700}
-  .badge{display:inline-block; padding:3px 9px; border-radius:6px; font-size:11.5px; font-weight:800; letter-spacing:.04em}
-  .b-win{background:rgba(34,197,94,.14); color:#7ff0b0} .b-loss{background:rgba(100,112,138,.16); color:#aeb7c9}
+  .badge{display:inline-block; padding:3px 9px; border-radius:6px; font-size:11.5px; font-weight:700; letter-spacing:.04em; font-family:var(--mono)}
+  .b-win{background:var(--green-dim); color:var(--green-soft)} .b-loss{background:rgba(255,107,107,.12); color:#ffb3b3}
 
+  /* ---- cards ---- */
   .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
   .cards.four{grid-template-columns:repeat(4,1fr)}
   .cards.three{grid-template-columns:repeat(3,1fr)}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:7px}
-  .card .h{font-weight:800; font-size:16px; letter-spacing:-.01em}
-  .card .d{color:var(--mid); font-size:13.5px; line-height:1.45}
-  .card .kx{font-family:var(--mono); font-size:11.5px; color:var(--pink-br); letter-spacing:.02em}
+  .card{background:linear-gradient(180deg,var(--paper),#08110b); border:1px solid var(--line); border-radius:14px; padding:20px;
+    display:flex; flex-direction:column; gap:7px; position:relative; overflow:hidden;
+    transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-5px); border-color:var(--line-hot); box-shadow:0 22px 55px -28px rgba(34,255,136,.3)}
+  .card::after{content:""; position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
+    background:radial-gradient(360px 160px at 20% 0%,rgba(34,255,136,.09),transparent 70%)}
+  .card:hover::after{opacity:1}
+  .card .h{font-weight:700; font-size:16px; letter-spacing:-.01em}
+  .card .d{color:var(--mid); font-size:13.5px; line-height:1.5}
+  .card .kx{font-family:var(--mono); font-size:11.5px; color:var(--green-soft); letter-spacing:.02em}
   .stat{font-family:var(--mono); font-size:clamp(26px,3.6vw,46px); font-weight:700; line-height:1; letter-spacing:-.02em}
   .flow{display:flex; align-items:stretch; gap:10px; flex-wrap:wrap}
-  .step{flex:1 1 0; min-width:120px; background:#0e0e19; border:1px solid var(--line); border-radius:12px; padding:14px 15px}
-  .step .n{font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:.1em}
+  .step{flex:1 1 0; min-width:120px; background:var(--term); border:1px solid var(--line); border-radius:12px; padding:14px 15px;
+    transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease)}
+  .step:hover{transform:translateY(-4px); border-color:var(--line-hot); box-shadow:0 16px 40px -22px rgba(34,255,136,.35)}
+  .step .n{font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:.1em}
   .step .t{font-weight:700; font-size:14px; margin-top:6px; line-height:1.25}
-  .arrow{align-self:center; color:var(--pink); font-size:18px}
-  .big{font-size:clamp(20px,2.4vw,30px); font-weight:800; letter-spacing:-.01em; line-height:1.25; text-wrap:balance}
+  .arrow{align-self:center; color:var(--green); font-size:18px; text-shadow:0 0 14px rgba(34,255,136,.5)}
+  .big{font-size:clamp(20px,2.4vw,30px); font-weight:700; letter-spacing:-.01em; line-height:1.25; text-wrap:balance}
   .muted{color:var(--mid)}
-  .kbd{font-family:var(--mono); color:var(--pink-br)}
-  a{color:var(--gold-br); text-decoration:none}
+  .kbd{font-family:var(--mono); color:var(--green-soft)}
 
+  /* ---- blinking terminal caret ---- */
+  .caret{display:inline-block; width:.55em; height:.95em; background:var(--green); vertical-align:-.08em; margin-left:.15em;
+    box-shadow:0 0 14px rgba(34,255,136,.6); animation:caret 1s steps(1) infinite}
+  @keyframes caret{50%{opacity:0}}
+  .blip{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--green); flex:none; animation:blip 2s ease-in-out infinite}
+  @keyframes blip{0%,100%{opacity:1; transform:scale(1)}50%{opacity:.35; transform:scale(.75)}}
+
+  /* ---- per-slide entrance reveals ---- */
+  .rv{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
+  .slide.in .rv{opacity:1; transform:none}
+
+  /* ---- progress + nav ---- */
+  .progress{position:fixed; top:0; left:0; right:0; height:2px; z-index:20;
+    background:linear-gradient(90deg,var(--green),var(--amber));
+    transform:scaleX(0); transform-origin:left; box-shadow:0 0 12px rgba(34,255,136,.5)}
   .nav{position:fixed; right:16px; bottom:16px; display:flex; gap:6px; z-index:10}
-  .dot{width:8px; height:8px; border-radius:50%; background:#2a2a40; border:0; padding:0; cursor:pointer}
-  .dot[aria-current="true"]{background:var(--pink); box-shadow:0 0 10px var(--pink)}
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--line); border:0; padding:0; cursor:pointer;
+    transition:background .3s var(--ease), box-shadow .3s var(--ease)}
+  .dot:hover{background:var(--line-hot)}
+  .dot[aria-current="true"]{background:var(--green); box-shadow:0 0 10px var(--green)}
   .hint{position:fixed; left:16px; bottom:14px; color:var(--low); font-size:11.5px; letter-spacing:.08em; z-index:10; font-family:var(--mono)}
 
   @media (max-width:820px){ .inner{aspect-ratio:auto; min-height:88vh} .cards,.cards.four,.cards.three{grid-template-columns:1fr 1fr} h1{font-size:52px} }
+
+  /* ---- reduced motion: kill everything ---- */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-delay:0ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      transition-delay:0ms !important;
+    }
+    .rv{opacity:1; transform:none}
+    .backdrop .grid,.backdrop .glow{animation:none}
+    .caret,.blip,.strip{animation:none}
+  }
+
+  /* ---- print: one slide per page, backgrounds exact, animations off ---- */
   @media print{
     @page{size:1280px 720px; margin:0}
-    html,body{background:var(--bg)}
-    .nav,.hint{display:none}
+    html,body{background:var(--ink)}
+    .nav,.hint,.progress,.backdrop{display:none}
     .slide{width:1280px; height:720px; min-height:0; padding:22px; page-break-after:always; break-after:page; scroll-snap-align:none}
     .inner{aspect-ratio:auto; height:100%; box-shadow:none}
-    .grad{background:none; -webkit-text-fill-color:#FFD166; color:#FFD166}
+    .rv{opacity:1 !important; transform:none !important; transition:none !important}
+    *,*::before,*::after{animation:none !important}
+    .grad{background:none; -webkit-text-fill-color:var(--amber); color:var(--amber); filter:none}
+    .caret{display:none}
     *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
   }
 </style>
 </head>
 <body>
 
+<div class="backdrop" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="scan"></div>
+  <div class="grain"></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow"><b>Injective Global Cup</b> · x402 <span class="num">LineLock · 01</span></div>
+  <div class="eyebrow rv"><span class="blip" aria-hidden="true"></span> <b>Injective Global Cup</b> · x402 <span class="num">LineLock · 01</span></div>
   <div class="push"></div>
-  <h1>Line<span class="grad">Lock</span></h1>
-  <p class="big" style="margin-top:18px">Lock the line. <span class="grad">Prove the pick.</span></p>
-  <p class="lede" style="margin-top:16px">Every World Cup tipster shows you screenshots.<br>LineLock shows you <b style="color:var(--hi)">receipts</b>.</p>
+  <h1 class="rv">Line<span class="grad">Lock</span></h1>
+  <p class="big rv" style="margin-top:18px">Lock the line. <span class="grad">Prove the pick.</span><span class="caret" aria-hidden="true"></span></p>
+  <p class="lede rv" style="margin-top:16px">Every World Cup tipster shows you screenshots.<br>LineLock shows you <b style="color:var(--hi)">receipts</b>.</p>
   <div class="push"></div>
-  <div class="row" style="align-items:center">
+  <div class="row rv" style="align-items:center">
     <span class="chip"><span class="k">receipt</span> <span class="mono">0x7a3f…e91d</span> <span class="ok">▲ 46h pre-kickoff</span></span>
     <span class="chip"><span class="k">clv</span> <span class="mono" style="color:var(--win)">+6.8%</span> <span class="muted">vs close</span></span>
     <span class="mono" style="margin-left:auto; color:var(--low); font-size:12.5px">x402 · CCTP · MCP · Agent Skills</span>
@@ -131,126 +242,206 @@
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">The problem <span class="num">02</span></div>
-  <h2 style="margin-top:20px">A track record is a <span class="grad">screenshot</span>.</h2>
-  <p class="lede" style="margin-top:18px">Tipster records are post-hoc, curated, unfalsifiable. Buyers can't tell edge from survivorship — and sellers with <i>real</i> edge can't prove it either. There is no neutral timestamp authority for a prediction.</p>
+  <div class="eyebrow rv">The problem <span class="num">02</span></div>
+  <h2 class="rv" style="margin-top:20px">A track record is a <span class="grad">screenshot</span>.</h2>
+  <p class="lede rv" style="margin-top:18px">Tipster records are post-hoc, curated, unfalsifiable. Buyers can't tell edge from survivorship — and sellers with <i>real</i> edge can't prove it either. There is no neutral timestamp authority for a prediction.</p>
   <div class="push"></div>
   <div class="cards three">
-    <div class="card"><div class="h">Post-hoc</div><div class="d">Posted after the whistle, or quietly deleted when wrong.</div></div>
-    <div class="card"><div class="h">Curated</div><div class="d">Wins amplified, losses vanish. Survivorship sells.</div></div>
-    <div class="card"><div class="h">Unverifiable</div><div class="d">No block, no timestamp, no way to check the claim.</div></div>
+    <div class="card rv"><div class="h">Post-hoc</div><div class="d">Posted after the whistle, or quietly deleted when wrong.</div></div>
+    <div class="card rv"><div class="h">Curated</div><div class="d">Wins amplified, losses vanish. Survivorship sells.</div></div>
+    <div class="card rv"><div class="h">Unverifiable</div><div class="d">No block, no timestamp, no way to check the claim.</div></div>
   </div>
-  <p class="lede" style="margin-top:20px; color:var(--gold-br)">The World Cup knockout window is peak scam season. A bettor with a real 15–9 record gets called a fraud on every win.</p>
+  <p class="lede rv" style="margin-top:20px; color:var(--amber)">The World Cup knockout window is peak scam season. A bettor with a real 15–9 record gets called a fraud on every win.</p>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">The solution <span class="num">03</span></div>
-  <h2 style="margin-top:20px">Payment and proof are the <span class="grad">same act</span>.</h2>
-  <p class="lede" style="margin-top:16px">A pay-per-pick API on Injective EVM. You pay <b class="mono" style="color:var(--hi)">0.05 USDC</b> via x402 for the next knockout edge — model probability vs market odds, plus a conviction staking ladder. The x402 receipt (650&nbsp;ms finality, immutable) timestamps the pick <b style="color:var(--hi)">before kickoff</b>.</p>
+  <div class="eyebrow rv">The solution <span class="num">03</span></div>
+  <h2 class="rv" style="margin-top:20px">Payment and proof are the <span class="grad">same act</span>.</h2>
+  <p class="lede rv" style="margin-top:16px">A pay-per-pick API on Injective EVM. You pay <b class="mono" style="color:var(--hi)">0.05 USDC</b> via x402 for the next knockout edge — model probability vs market odds, plus a conviction staking ladder. The x402 receipt (650&nbsp;ms finality, immutable) timestamps the pick <b style="color:var(--hi)">before kickoff</b>.</p>
   <div class="push"></div>
-  <table class="ledger mono">
-    <tr><td>FRA ML · banker</td><td>entry <b>1.71</b></td><td>close <b>1.60</b></td><td><span class="clv-pos">CLV +6.8%</span></td><td><span class="badge b-win">WON</span></td><td style="color:var(--gold)">0x7a3f…e91d ↗</td></tr>
-    <tr><td>ENG −0.5 · rung 2</td><td>entry <b>1.95</b></td><td>close <b>2.02</b></td><td><span class="clv-neg">CLV −1.8%</span></td><td><span class="badge b-loss">LOST</span></td><td style="color:var(--gold)">0x41c8…7d2a ↗</td></tr>
+  <table class="ledger mono rv">
+    <tr><td>FRA ML · banker</td><td>entry <b>1.71</b></td><td>close <b>1.60</b></td><td><span class="clv-pos">CLV +6.8%</span></td><td><span class="badge b-win">WON</span></td><td style="color:var(--amber)">0x7a3f…e91d ↗</td></tr>
+    <tr><td>ENG −0.5 · rung 2</td><td>entry <b>1.95</b></td><td>close <b>2.02</b></td><td><span class="clv-neg">CLV −1.8%</span></td><td><span class="badge b-loss">LOST</span></td><td style="color:var(--amber)">0x41c8…7d2a ↗</td></tr>
   </table>
-  <p class="lede" style="margin-top:18px">After the match, a CLV engine scores every pick against the closing line and publishes it to a <b style="color:var(--hi)">free public ledger</b>. Buy the next pick for five cents; audit every previous pick for free.</p>
+  <p class="lede rv" style="margin-top:18px">After the match, a CLV engine scores every pick against the closing line and publishes it to a <b style="color:var(--hi)">free public ledger</b>. Buy the next pick for five cents; audit every previous pick for free.</p>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">The mechanic · <b>the depth</b> <span class="num">04</span></div>
-  <h2 style="margin-top:16px">Closing-line value is the <span class="grad">luck-proof</span> metric.</h2>
+  <div class="eyebrow rv">The mechanic · <b>the depth</b> <span class="num">04</span></div>
+  <h2 class="rv" style="margin-top:16px">Closing-line value is the <span class="grad">luck-proof</span> metric.</h2>
   <div class="cards" style="margin-top:22px">
-    <div class="card"><div class="kx">receipt-as-timestamp</div><div class="h">The payment IS the notary</div><div class="d">Block time &lt; kickoff is checkable by anyone on the explorer. No custom contract needed — <span class="mono">sha256(pick)</span> is bound to the receipt in the same ledger row.</div></div>
-    <div class="card"><div class="kx">clv = implied(entry) − implied(close)</div><div class="h">Skill, not variance</div><div class="d">Positive CLV across a sample = real edge, independent of win/loss noise — the metric pro syndicates actually use, computed by code, not claimed in a tweet.</div></div>
+    <div class="card rv"><div class="kx">receipt-as-timestamp</div><div class="h">The payment IS the notary</div><div class="d">Block time &lt; kickoff is checkable by anyone on the explorer. No custom contract needed — <span class="mono">sha256(pick)</span> is bound to the receipt in the same ledger row.</div></div>
+    <div class="card rv"><div class="kx">clv = implied(entry) − implied(close)</div><div class="h">Skill, not variance</div><div class="d">Positive CLV across a sample = real edge, independent of win/loss noise — the metric pro syndicates actually use, computed by code, not claimed in a tweet.</div></div>
   </div>
   <div class="push"></div>
-  <div class="chip" style="align-self:flex-start"><span class="k">invariant</span> <span class="mono" style="color:var(--hi)">receipts.count === ledger.rows</span> <span class="muted">— a missing loss is detectable by any auditor holding a receipt</span></div>
+  <div class="chip rv" style="align-self:flex-start"><span class="k">invariant</span> <span class="mono" style="color:var(--hi)">receipts.count === ledger.rows</span> <span class="muted">— a missing loss is detectable by any auditor holding a receipt</span></div>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">One flow, extreme depth <span class="num">05</span></div>
-  <h2 style="margin-top:18px">Pay → pick → receipt → <span class="grad">closing line → CLV → ledger</span></h2>
+  <div class="eyebrow rv">One flow, extreme depth <span class="num">05</span></div>
+  <h2 class="rv" style="margin-top:18px">Pay → pick → receipt → <span class="grad">closing line → CLV → ledger</span></h2>
   <div class="push"></div>
   <div class="flow">
-    <div class="step"><div class="n">01 · x402</div><div class="t">Agent pays 0.05 USDC</div></div>
-    <div class="arrow">→</div>
-    <div class="step"><div class="n">02 · 650ms</div><div class="t">Receipt = pre-kickoff proof</div></div>
-    <div class="arrow">→</div>
-    <div class="step"><div class="n">03 · odds</div><div class="t">Closing line frozen at KO</div></div>
-    <div class="arrow">→</div>
-    <div class="step"><div class="n">04 · result</div><div class="t">CLV scored vs close</div></div>
-    <div class="arrow">→</div>
-    <div class="step"><div class="n">05 · public</div><div class="t">Ledger row, losses kept</div></div>
+    <div class="step rv"><div class="n">01 · x402</div><div class="t">Agent pays 0.05 USDC</div></div>
+    <div class="arrow rv">→</div>
+    <div class="step rv"><div class="n">02 · 650ms</div><div class="t">Receipt = pre-kickoff proof</div></div>
+    <div class="arrow rv">→</div>
+    <div class="step rv"><div class="n">03 · odds</div><div class="t">Closing line frozen at KO</div></div>
+    <div class="arrow rv">→</div>
+    <div class="step rv"><div class="n">04 · result</div><div class="t">CLV scored vs close</div></div>
+    <div class="arrow rv">→</div>
+    <div class="step rv"><div class="n">05 · public</div><div class="t">Ledger row, losses kept</div></div>
   </div>
   <div class="push"></div>
-  <p class="lede">Live on Injective mainnet, fed by live World Cup fixtures, zero mocks. Everything else exists to make this one flow undeniable.</p>
+  <p class="lede rv">Live on Injective mainnet, fed by live World Cup fixtures, zero mocks. Everything else exists to make this one flow undeniable.</p>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">Why only Injective · <b>load-bearing</b> <span class="num">06</span></div>
-  <h2 style="margin-top:16px">Remove Injective and you need <span class="grad">four systems</span>.</h2>
+  <div class="eyebrow rv">Why only Injective · <b>load-bearing</b> <span class="num">06</span></div>
+  <h2 class="rv" style="margin-top:16px">Remove Injective and you need <span class="grad">four systems</span>.</h2>
   <div class="cards four" style="margin-top:22px">
-    <div class="card"><div class="kx">x402</div><div class="h">Pay = notarize</div><div class="d">injectivePaymentMiddleware gates /api/edge; the receipt is the timestamp.</div></div>
-    <div class="card"><div class="kx">MCP Server</div><div class="h">Balance & config</div><div class="d">account_balances · usdc_native_info · address_normalize, driven by the Skill.</div></div>
-    <div class="card"><div class="kx">Agent Skills</div><div class="h">Distribution</div><div class="d">worldcup-linelock — any harness becomes a buyer, no API key.</div></div>
-    <div class="card"><div class="kx">USDC CCTP</div><div class="h">Funding</div><div class="d">Burn on Base → Iris → cctp_mint. Empty wallet → funded, cross-chain.</div></div>
+    <div class="card rv"><div class="kx">x402</div><div class="h">Pay = notarize</div><div class="d">injectivePaymentMiddleware gates /api/edge; the receipt is the timestamp.</div></div>
+    <div class="card rv"><div class="kx">MCP Server</div><div class="h">Balance & config</div><div class="d">account_balances · usdc_native_info · address_normalize, driven by the Skill.</div></div>
+    <div class="card rv"><div class="kx">Agent Skills</div><div class="h">Distribution</div><div class="d">worldcup-linelock — any harness becomes a buyer, no API key.</div></div>
+    <div class="card rv"><div class="kx">USDC CCTP</div><div class="h">Funding</div><div class="d">Burn on Base → Iris → cctp_mint. Empty wallet → funded, cross-chain.</div></div>
   </div>
   <div class="push"></div>
-  <p class="lede">Plus <b class="mono" style="color:var(--gold-br)">LedgerAnchor.sol</b> on Injective EVM — a daily Merkle root of pick-hashes makes the database itself tamper-evident. <span class="muted">Without Injective: a payment processor + a timestamp authority + a bridge + an agent-integration layer.</span></p>
+  <p class="lede rv">Plus <b class="mono" style="color:var(--amber)">LedgerAnchor.sol</b> on Injective EVM — a daily Merkle root of pick-hashes makes the database itself tamper-evident. <span class="muted">Without Injective: a payment processor + a timestamp authority + a bridge + an agent-integration layer.</span></p>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">Built &amp; independently verified <span class="num">07</span></div>
-  <h2 style="margin-top:16px">Real code. Real 402. <span class="grad">Honest gaps.</span></h2>
+  <div class="eyebrow rv">Built &amp; independently verified <span class="num">07</span></div>
+  <h2 class="rv" style="margin-top:16px">Real code. Real 402. <span class="grad">Honest gaps.</span></h2>
   <div class="row" style="margin-top:22px; gap:26px">
-    <div class="col" style="flex:1"><div class="stat" style="color:var(--win)">63/63</div><div class="muted" style="font-size:13.5px">tests green — edge · ladder · CLV · hash · settle · invariants I1–I5 · 402 handshake</div></div>
-    <div class="col" style="flex:1"><div class="stat" style="color:var(--pink-br)">HTTP&nbsp;402</div><div class="muted" style="font-size:13.5px">live quote on <span class="mono">eip155:1776</span> · 0.05 USDC · eip3009 — booted &amp; curled</div></div>
-    <div class="col" style="flex:1"><div class="stat">24</div><div class="muted" style="font-size:13.5px">CLV-scored ledger rows · losses kept · 5 screens · LedgerAnchor.sol</div></div>
+    <div class="col rv" style="flex:1"><div class="stat" style="color:var(--win)"><span class="count" data-target="63">63</span>/<span class="count" data-target="63">63</span></div><div class="muted" style="font-size:13.5px">tests green — edge · ladder · CLV · hash · settle · invariants I1–I5 · 402 handshake</div></div>
+    <div class="col rv" style="flex:1"><div class="stat" style="color:var(--green-soft)">HTTP&nbsp;<span class="count" data-target="402">402</span></div><div class="muted" style="font-size:13.5px">live quote on <span class="mono">eip155:1776</span> · 0.05 USDC · eip3009 — booted &amp; curled</div></div>
+    <div class="col rv" style="flex:1"><div class="stat"><span class="count" data-target="24">24</span></div><div class="muted" style="font-size:13.5px">CLV-scored ledger rows · losses kept · 5 screens · LedgerAnchor.sol</div></div>
   </div>
   <div class="push"></div>
-  <div class="chip" style="align-self:flex-start; border-color:var(--gold)"><span class="k" style="color:var(--gold)">honesty</span> <span class="muted">Live paid mainnet receipt &amp; CCTP mint are funds-gated — seed rows labeled <span class="mono">is_placeholder</span>, the smoke script refuses rather than fake a hash.</span></div>
+  <div class="chip rv" style="align-self:flex-start; border-color:var(--amber)"><span class="k" style="color:var(--amber)">honesty</span> <span class="muted">Live paid mainnet receipt &amp; CCTP mint are funds-gated — seed rows labeled <span class="mono">is_placeholder</span>, the smoke script refuses rather than fake a hash.</span></div>
 </div></section>
 
 <section class="slide"><div class="inner">
   <div class="strip"></div>
-  <div class="eyebrow">The moat <span class="num">08</span></div>
-  <h2 style="margin-top:18px">The <span class="grad">asymmetry</span> is the product.</h2>
-  <p class="lede" style="margin-top:18px">My wins are provable and my losses are public. A real, live, settled 2026 World Cup record — the one asset no competitor can fabricate — becomes a verifiable credential the instant each pick is paid for.</p>
+  <div class="eyebrow rv">The moat <span class="num">08</span></div>
+  <h2 class="rv" style="margin-top:18px">The <span class="grad">asymmetry</span> is the product.</h2>
+  <p class="lede rv" style="margin-top:18px">My wins are provable and my losses are public. A real, live, settled 2026 World Cup record — the one asset no competitor can fabricate — becomes a verifiable credential the instant each pick is paid for.</p>
   <div class="push"></div>
-  <p class="big">Post to X: platform-mutable, deletable, unverifiable.<br><span class="grad">An x402 receipt: an immutable, third-party block time.</span></p>
-  <p class="lede" style="margin-top:18px; color:var(--gold-br)">The losses kept public <i>are</i> the credibility.</p>
+  <p class="big rv">Post to X: platform-mutable, deletable, unverifiable.<br><span class="grad">An x402 receipt: an immutable, third-party block time.</span></p>
+  <p class="lede rv" style="margin-top:18px; color:var(--amber)">The losses kept public <i>are</i> the credibility.</p>
 </div></section>
 
 <section class="slide"><div class="inner center" style="justify-content:center">
   <div class="strip"></div>
-  <h2 style="font-size:clamp(30px,5vw,64px)">Buy the next pick for <span class="grad">five cents</span>.<br>Audit every past pick for <span class="grad">free</span>.</h2>
-  <div class="row center" style="margin-top:34px; gap:12px">
+  <h2 class="rv" style="font-size:clamp(30px,5vw,64px)">Buy the next pick for <span class="grad">five cents</span>.<br>Audit every past pick for <span class="grad">free</span>.</h2>
+  <div class="row center rv" style="margin-top:34px; gap:12px">
     <span class="chip"><span class="k">repo</span> <span class="mono">github.com/edycutjong/linelock</span></span>
     <span class="chip"><span class="k">live</span> <span class="mono">linelock.edycu.dev</span></span>
   </div>
-  <p class="mono" style="margin-top:26px; color:var(--low); letter-spacing:.12em; font-size:13px">x402 &nbsp;·&nbsp; USDC CCTP &nbsp;·&nbsp; MCP SERVER &nbsp;·&nbsp; AGENT SKILLS</p>
-  <p class="eyebrow" style="margin-top:10px">@NinjaLabsHQ · #InjectiveGlobalCupHackathon</p>
+  <p class="mono rv" style="margin-top:26px; color:var(--low); letter-spacing:.12em; font-size:13px">x402 &nbsp;·&nbsp; USDC CCTP &nbsp;·&nbsp; MCP SERVER &nbsp;·&nbsp; AGENT SKILLS</p>
+  <p class="eyebrow rv" style="margin-top:10px">@NinjaLabsHQ · #InjectiveGlobalCupHackathon<span class="caret" aria-hidden="true"></span></p>
 </div></section>
 
 <div class="nav" id="nav" aria-hidden="true"></div>
 <div class="hint">↑ ↓ / space to navigate · P to print</div>
 <script>
-  const slides=[...document.querySelectorAll('.slide')], nav=document.getElementById('nav');
-  slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Slide '+(i+1));
-    b.onclick=()=>s.scrollIntoView();nav.appendChild(b);});
-  const dots=[...nav.children];
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=slides.indexOf(e.target);
-    dots.forEach((d,j)=>d.setAttribute('aria-current',j===i))}}),{threshold:.55});
-  slides.forEach(s=>io.observe(s));
-  let i=0; const go=n=>{i=Math.max(0,Math.min(slides.length-1,n));slides[i].scrollIntoView()};
-  addEventListener('keydown',e=>{
-    if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
-    else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}
-    else if(e.key==='p'||e.key==='P'){window.print()}});
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var nav = document.getElementById('nav');
+
+  /* ---- progress dots ---- */
+  slides.forEach(function(s,i){
+    var b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('aria-label','Slide '+(i+1));
+    b.onclick = function(){ s.scrollIntoView(); };
+    nav.appendChild(b);
+  });
+  var dots = [].slice.call(nav.children);
+
+  /* ---- top progress bar ---- */
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? window.scrollY / max : 0;
+    progress.style.transform = 'scaleX(' + p + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---- staggered entrance delays per slide ---- */
+  slides.forEach(function(s){
+    [].slice.call(s.querySelectorAll('.rv')).forEach(function(el,i){
+      el.style.transitionDelay = (i*90) + 'ms';
+    });
+  });
+
+  /* ---- count-up on stat numbers ---- */
+  function setFinal(el){
+    var t = parseFloat(el.dataset.target), d = parseInt(el.dataset.decimals||"0",10);
+    el.textContent = t.toFixed(d);
+  }
+  function countUp(el){
+    var t = parseFloat(el.dataset.target), d = parseInt(el.dataset.decimals||"0",10);
+    var dur = 1200, start = null;
+    function frame(ts){
+      if (start === null) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = (t*eased).toFixed(d);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('beforeprint', function(){
+    [].slice.call(document.querySelectorAll('.count')).forEach(setFinal);
+  });
+
+  /* ---- slide observer: reveals + current dot + count-ups ---- */
+  var counted = new WeakSet();
+  if (reduced || !("IntersectionObserver" in window)){
+    slides.forEach(function(s){ s.classList.add('in'); });
+    [].slice.call(document.querySelectorAll('.count')).forEach(setFinal);
+    if (dots[0]) dots[0].setAttribute('aria-current','true');
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var idx = slides.indexOf(e.target);
+        e.target.classList.add('in');
+        dots.forEach(function(d,j){ d.setAttribute('aria-current', j===idx); });
+        [].slice.call(e.target.querySelectorAll('.count')).forEach(function(c){
+          if (!counted.has(c)){ counted.add(c); countUp(c); }
+        });
+      });
+    }, {threshold:.55});
+    slides.forEach(function(s){ io.observe(s); });
+  }
+
+  /* ---- keyboard navigation ---- */
+  var i = 0;
+  var go = function(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides[i].scrollIntoView();
+  };
+  addEventListener('keydown', function(e){
+    if (['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); go(i+1); }
+    else if (['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); go(i-1); }
+    else if (e.key==='p'||e.key==='P'){ window.print(); }
+  });
+  /* keep keyboard index in sync when scrolling manually */
+  var sync = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) i = slides.indexOf(e.target); });
+  }, {threshold:.55});
+  slides.forEach(function(s){ sync.observe(s); });
+})();
 </script>
 
 </body>
