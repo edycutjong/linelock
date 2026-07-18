@@ -548,28 +548,28 @@
 
         <figure class="rcard reveal" style="--d:.1s">
           <figcaption class="rhead"><span class="tag">SIMILAR_SETTLED</span><span>losses included (I3)</span></figcaption>
-          <pre><code>$ curl -s -X POST :8402/api/edge   <span class="k"># --demo</span>
-
+          <pre><code>$ curl -s -X POST :8402/api/edge
+<span class="k"># demo mode</span>
 <span class="k">"similar_settled"</span>: [
-  { FRA vs AUS &middot; <span class="win">win</span> &middot; clv <span class="win">+9.0%</span> },
-  { ENG vs SUI &middot; <span class="win">win</span> &middot; clv <span class="win">+7.6%</span> },
-  { CRO vs CAN &middot; <span class="win">win</span> &middot; clv <span class="loss">-6.1%</span> }
+ { FRA·AUS <span class="win">win</span> &middot; clv <span class="win">+9.0%</span> },
+ { ENG·SUI <span class="win">win</span> &middot; clv <span class="win">+7.6%</span> },
+ { CRO·CAN <span class="win">win</span> &middot; clv <span class="loss">-6.1%</span> }
 ],
 <span class="k">"receipt"</span>: null,
-<span class="k">"note"</span>: <span class="s">"Demo/unsettled response
-        (no on-chain receipt bound)."</span></code></pre>
+<span class="k">"note"</span>: <span class="s">"Demo/unsettled —
+  no receipt bound."</span></code></pre>
           <figcaption class="rfoot">Note <b>CRO vs CAN</b>: a win that <b>lost</b> CLV. The system publishes its own bad prices — and demo mode labels itself unpaid instead of faking a receipt.</figcaption>
         </figure>
 
         <figure class="rcard reveal" style="--d:.2s">
           <figcaption class="rhead"><span class="tag">INDEPENDENT AUDIT</span><span>anyone can re-run</span></figcaption>
           <pre><code>$ npm test
-<span class="win">&#10003; 70 passed</span>  <span class="k">CLV &middot; hash &middot; I1&ndash;I5 &middot; 402</span>
+<span class="win">&#10003; 70 passed</span> <span class="k">&middot; I1&ndash;I5 &middot; 402</span>
 
 $ npm run audit -- --all
-re-hashing 24 picks&hellip;      <span class="win">ok</span>
-receipt_block &lt; kickoff&hellip;  <span class="win">ok</span>
-merkle roots recomputed&hellip;  <span class="win">ok</span>
+re-hashing 24 picks&hellip;     <span class="win">ok</span>
+receipt_block &lt; kickoff&hellip; <span class="win">ok</span>
+merkle roots recomputed&hellip; <span class="win">ok</span>
 
 <span class="pass">LEDGER PASSES</span></code></pre>
           <figcaption class="rfoot">Five data invariants (I1&ndash;I5) are the product — enforced in code, covered by the 70-test suite, re-checkable by anyone with one command.</figcaption>
