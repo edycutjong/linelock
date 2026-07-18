@@ -125,9 +125,9 @@ technologies used"** section — x402 · MCP · Agent Skills · CCTP (+ the EVM 
 > Seed ledger rows are `is_placeholder: true` with synthetic receipt hashes (not on-chain). The `--demo`
 > 200 returns `receipt: null`. No placeholder is ever presented as a real settlement.
 
-**User steps before submitting (not fabricated here):** deploy the site to a public URL. The ≤3:00 demo
-video is **DONE: https://youtu.be/MHHYIJkLRbo** (zero-funds cut). The README/STATUS mark the live URL as
-pending, and the on-chain receipt as funds-gated.
+**User steps: DONE.** The site is **LIVE: https://linelock.edycu.dev/** (API: https://api.linelock.edycu.dev),
+and the ≤3:00 demo video is **DONE: https://youtu.be/MHHYIJkLRbo** (zero-funds cut). Still honestly
+pending (funds-gated, never faked): the first real on-chain receipt and the LedgerAnchor mainnet deploy.
 
 ---
 

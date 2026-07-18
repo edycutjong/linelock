@@ -153,8 +153,8 @@ full ~25-second "402 → `--demo` 200 → `audit --all`" magic-moment beat.
   npm run api & sleep 1                           # API on :8402
   curl -i -X POST http://localhost:8402/api/edge  # → HTTP 402 + a real x402 quote, zero funds
   ```
-- **What is honestly pending** (all user- or funds-gated, and never faked): a live deploy URL, a recorded
-  demo video, and the first *real* on-chain paid receipt. Status is tracked in [`STATUS.md`](docs/STATUS.md).
+- **What is honestly pending** (funds-gated, never faked): the first *real* on-chain paid receipt and the
+  LedgerAnchor mainnet deploy. The live site, API, demo and pitch videos are all shipped. Status is tracked in [`STATUS.md`](docs/STATUS.md).
 
 ## 🏗️ Architecture
 
@@ -226,7 +226,7 @@ Five honestly-named Injective surfaces, each load-bearing:
 
 ### 5. Injective EVM smart contract — `LedgerAnchor.sol`
 - ~40-line write-once daily **Merkle checkpoint** of pick hashes (event `AnchorPosted(day, root, count)`),
-  built/deployed via the official **`injective-evm-developer`** Agent Skill. Receipts prove *when each
+  built (deploy-ready) via the official **`injective-evm-developer`** Agent Skill. Receipts prove *when each
   pick existed*; the anchor proves *the ledger DB was never rewritten* (invariant I5). Code:
   [`contracts/LedgerAnchor.sol`](contracts/LedgerAnchor.sol), deploy notes [`contracts/DEPLOY.md`](contracts/DEPLOY.md).
 

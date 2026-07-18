@@ -597,11 +597,11 @@ merkle roots recomputed&hellip; <span class="win">ok</span>
         </div>
         <div class="qa">
           <h3 style="margin:0"><button class="q" aria-expanded="false" aria-controls="a4" id="q4">How do I audit the track record?<span class="chev" aria-hidden="true">+</span></button></h3>
-          <div class="a" id="a4" role="region" aria-labelledby="q4"><div class="a-in">One command: <code>npm run audit -- --all</code>. It independently re-hashes every pick, checks that each receipt block time sits before kickoff (invariant I1), verifies rows == receipts (I3), and recomputes every daily Merkle root against the on-chain anchor (I5) &rarr; <b>"LEDGER PASSES"</b>. The audit CLI is separate from the code that writes the ledger.</div></div>
+          <div class="a" id="a4" role="region" aria-labelledby="q4"><div class="a-in">One command: <code>npm run audit -- --all</code>. It independently re-hashes every pick, checks that each receipt block time sits before kickoff (invariant I1), verifies rows == receipts (I3), and recomputes every daily Merkle root for the anchor contract (I5 — written + tested; mainnet deploy funds-gated) &rarr; <b>"LEDGER PASSES"</b>. The audit CLI is separate from the code that writes the ledger.</div></div>
         </div>
         <div class="qa">
           <h3 style="margin:0"><button class="q" aria-expanded="false" aria-controls="a5" id="q5">Which chain and which token?<span class="chev" aria-hidden="true">+</span></button></h3>
-          <div class="a" id="a5" role="region" aria-labelledby="q5"><div class="a-in"><b>Injective EVM mainnet</b> — network <code>eip155:1776</code> — paying in native USDC at <code>0xa00C59fF5a080D2b954d0c75e46E22a0c371235a</code>. Buyers can fund cross-chain from Base via USDC CCTP&nbsp;V2 (burn &rarr; Iris attestation &rarr; mint on Injective). The daily Merkle checkpoint lives in <code>LedgerAnchor.sol</code> on the same chain.</div></div>
+          <div class="a" id="a5" role="region" aria-labelledby="q5"><div class="a-in"><b>Injective EVM mainnet</b> — network <code>eip155:1776</code> — paying in native USDC at <code>0xa00C59fF5a080D2b954d0c75e46E22a0c371235a</code>. Buyers can fund cross-chain from Base via USDC CCTP&nbsp;V2 (burn &rarr; Iris attestation &rarr; mint on Injective). The daily Merkle checkpoint is implemented in <code>LedgerAnchor.sol</code> for the same chain (deploy funds-gated).</div></div>
         </div>
         <div class="qa">
           <h3 style="margin:0"><button class="q" aria-expanded="false" aria-controls="a6" id="q6">Is demo mode honest?<span class="chev" aria-hidden="true">+</span></button></h3>
