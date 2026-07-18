@@ -54,8 +54,10 @@ Buy the next pick for 5 cents. Audit every past pick for free.
 
 **What's built & green today (no funds needed):** 70 passing tests, a **live HTTP 402** quote from the
 real `@injectivelabs/x402` middleware, a 5-screen Next.js ledger site, an independent audit CLI, and an
-on-chain **Merkle anchor** contract. The single thing gated on wallet funding is the *real paid mainnet
-receipt* — and the code [refuses to fabricate it](scripts/paid-call-smoke.ts).
+on-chain **Merkle anchor** contract. And as of **2026-07-18** the live API has **real paid mainnet
+receipts** — four settled x402 sales, first one
+[`0xc4327f40…c41a1beb`](https://blockscout.injective.network/tx/0xc4327f40b1bc22a1ddb0f102f064e265e66c2ee9b51e5d6dd7eb6e69c41a1beb)
+— and the code still [refuses to fabricate](scripts/paid-call-smoke.ts) any receipt it didn't earn.
 
 ## 🚀 Quickstart (no funds needed for the 402 proof)
 
@@ -153,8 +155,13 @@ full ~25-second "402 → `--demo` 200 → `audit --all`" magic-moment beat.
   npm run api & sleep 1                           # API on :8402
   curl -i -X POST http://localhost:8402/api/edge  # → HTTP 402 + a real x402 quote, zero funds
   ```
-- **What is honestly pending** (funds-gated, never faked): the first *real* on-chain paid receipt and the
-  LedgerAnchor mainnet deploy. The live site, API, demo and pitch videos are all shipped. Status is tracked in [`STATUS.md`](docs/STATUS.md).
+- **Real on-chain paid receipts now exist (2026-07-18).** The live API (`api.linelock.edycu.dev`) has
+  settled **four real x402 sales** at 0.05 USDC each on Injective EVM mainnet — the first
+  ([`0xc4327f40…c41a1beb`](https://blockscout.injective.network/tx/0xc4327f40b1bc22a1ddb0f102f064e265e66c2ee9b51e5d6dd7eb6e69c41a1beb))
+  is now a real `is_placeholder: false` row on the live public ledger, and **two of the four were bought
+  autonomously by other AI agents** (CupOracle's `wc_edge` and AgentDuel's RED duelist).
+- **What is honestly pending** (never faked): just the **LedgerAnchor mainnet deploy** — funds are now
+  available but the contract is not yet deployed. The live site, API, demo and pitch videos are all shipped. Status is tracked in [`STATUS.md`](docs/STATUS.md).
 
 ## 🏗️ Architecture
 
@@ -221,8 +228,12 @@ Five honestly-named Injective surfaces, each load-bearing:
 
 ### 4. USDC CCTP V2 — cross-chain buyer funding
 - Base (domain 6) burn → Iris attestation (`iris-api.circle.com`) → `cctp_mint` on Injective.
-  TokenMessengerV2 `0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d`. Wiring + honest funding status in
-  [`STATUS.md`](docs/STATUS.md) and [`DEMO.md`](docs/DEMO.md).
+  TokenMessengerV2 `0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d`.
+- **Executed for real (2026-07-18):** burn on Base
+  `0x66ce1116e75f780e60259e394304e86f7565b52276f9d49e4c7fc66209427b37` → Iris attestation → mint on
+  Injective
+  [`0xd757a98d…3c4464ac`](https://blockscout.injective.network/tx/0xd757a98d6abb3e760898fc8c30447f6a8b86d35c0745db4f474ea56d3c4464ac)
+  (2 USDC). Details in [`STATUS.md`](docs/STATUS.md) and [`DEMO.md`](docs/DEMO.md).
 
 ### 5. Injective EVM smart contract — `LedgerAnchor.sol`
 - ~40-line write-once daily **Merkle checkpoint** of pick hashes (event `AnchorPosted(day, root, count)`),
@@ -276,8 +287,11 @@ All five are covered by the **70-test** suite (`npm test`).
 11 banker / 3 value / 10 probe · 158 calls sold.
 
 > ⚠️ The seed rows are **placeholder** data (`is_placeholder: true`, synthetic receipt hashes) used to
-> exercise the engine — labeled everywhere and in [`STATUS.md`](docs/STATUS.md). Real paid receipts
-> (`is_placeholder: false`) with true Blockscout tx hashes land once the ops wallet is funded.
+> exercise the engine — labeled everywhere and in [`STATUS.md`](docs/STATUS.md). As of **2026-07-18** the
+> live public ledger also carries its **first real paid receipt** (`is_placeholder: false`, fixture
+> "SF: FRA vs ESP", tx
+> [`0xc4327f40…c41a1beb`](https://blockscout.injective.network/tx/0xc4327f40b1bc22a1ddb0f102f064e265e66c2ee9b51e5d6dd7eb6e69c41a1beb))
+> — 24 of the 25 live rows remain labeled seed/placeholder.
 
 ## ⚡ Bench (N=20, in-process)
 
@@ -285,8 +299,8 @@ All five are covered by the **70-test** suite (`npm test`).
 |---|---|
 | 402-quote p50 | ~0.5 ms |
 | 402-quote p95 | ~2.6 ms |
-| facilitator-confirm | N/A — funds-gated |
-| total paid | N/A — funds-gated |
+| facilitator-confirm | N/A — not yet re-benched (real settlements exist as of 2026-07-18) |
+| total paid | N/A — not yet re-benched |
 
 `npm run bench` regenerates `fixtures/bench.json`.
 
@@ -346,10 +360,14 @@ npm run lighthouse    # Lighthouse CI (build web/ first)
 
 ## 🧾 Honesty & funding status
 
-The ops wallet is **not funded yet** (13 USDC on Base, 0 INJ gas, 0 USDC on Injective). Everything here
-is wired to the **real** package; the 402 proof, engine, ledger, audit, bench, and site all run **now**.
-Real mainnet money-moving (paid call, CCTP mint, on-chain anchor) is **blocked on funding** and left
-ready — see [`STATUS.md`](docs/STATUS.md). No on-chain receipt or mainnet tx is ever fabricated.
+The ops wallet is now **funded** (CCTP Base→Injective mint executed 2026-07-18) and **real mainnet
+settlements have happened**: the live API has settled **four paid x402 calls** at 0.05 USDC each on
+Injective EVM mainnet (payer `0x95DdED219bD3d763A184eB4187056b9F238aAaA2` → payTo
+`0x45078eD96C2bB171009A47a57aF5C085Bf4fD0e3`), first receipt
+[`0xc4327f40…c41a1beb`](https://blockscout.injective.network/tx/0xc4327f40b1bc22a1ddb0f102f064e265e66c2ee9b51e5d6dd7eb6e69c41a1beb)
+— two of the four bought autonomously by other AI agents. Still pending: the **LedgerAnchor mainnet
+deploy**; 24 of the 25 live ledger rows remain labeled seed/placeholder — see
+[`STATUS.md`](docs/STATUS.md). No on-chain receipt or mainnet tx is ever fabricated.
 
 ## 📄 License
 

@@ -8,6 +8,10 @@
     "max": 3.26
   },
   "facilitator_confirm_ms": null,
-  "total_paid_ms": null,
-  "note": "quote_ms is the real unpaid 402 round-trip (in-process). Confirm/total are funds-gated — see STATUS.md."
+  "total_paid_ms": 3828,
+  "note": "quote_ms is the real unpaid 402 round-trip (in-process). Confirm/total are funds-gated — see STATUS.md.",
+  "first_paid_receipt": {
+    "tx": "0xc4327f40b1bc22a1ddb0f102f064e265e66c2ee9b51e5d6dd7eb6e69c41a1beb",
+    "at": "2026-07-18T03:04:56.055Z"
+  }
 }
