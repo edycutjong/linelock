@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/edycutjong/linelock/compare/v1.2.2...v1.2.3) (2026-07-18)
+
+
+### Bug Fixes
+
+* **docs:** receipts panels — fit all terminal lines inside cards (macOS hidden scrollbars made overflow look clipped) ([3c8a6be](https://github.com/edycutjong/linelock/commit/3c8a6bebc59ffd19a234a232080be6b2c9b88e95))
+
 ## [1.2.2](https://github.com/edycutjong/linelock/compare/v1.2.1...v1.2.2) (2026-07-17)
 
 
